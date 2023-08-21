@@ -45,6 +45,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": "18.x"
+  },
   "react-dotenv": {
     "whitelist": [
       "URL",
