@@ -2,17 +2,32 @@ import React, { useEffect, useState } from 'react';
 
 export default function App() {
   const [showContacts, setShowContacts] = useState(false);
+  const [crossed, setCrossed] = useState(false);
+  const [scrollThreshold, setScrollThreshold] = useState(0.1); // Default threshold as a percentage
 
   useEffect(() => {
+    const calculatedThreshold = document.documentElement.scrollHeight * 0.1; // 10% of the page height
+    setScrollThreshold(calculatedThreshold);
+
     const handleScroll = () => {
       const scrollPosition = window.innerHeight + window.scrollY;
       const pageHeight = document.documentElement.scrollHeight;
-      const scrollThreshold = 360; // Adjust this value based on how close to the bottom you want to trigger the contacts
+      const targetDiv = document.querySelector('.landingIMG');
 
       if (pageHeight - scrollPosition < scrollThreshold) {
         setShowContacts(true);
+
+        if (targetDiv) {
+          targetDiv.classList.remove("moveBackPic");
+          targetDiv.classList.add("movePic");
+          setCrossed(true);
+        }
       } else {
-        setShowContacts(false);
+        if (targetDiv && crossed) {
+          targetDiv.classList.remove("movePic");
+          targetDiv.classList.add("moveBackPic");
+          setShowContacts(false);
+        }
       }
     };
 
@@ -21,7 +36,7 @@ export default function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [crossed, scrollThreshold]);
 
   return (
     <div className='contact'>

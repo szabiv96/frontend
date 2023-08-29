@@ -11,12 +11,14 @@ function urlFor(source) {
 const builder = imageUrlBuilder(client);
 
 function SoloAlbum({ picture }) {
-    
+    console.log(picture);
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
     const [initialSlideIndex, setInitialSlideIndex] = useState(0);
     const [loading, setLoading] = useState(true);
     const [pictureId, setPictureId] = useState('');
     const [pract, setPract] = useState({});
+
+    
 
     useEffect(() => {
         let isMounted = true; // Flag to track component mount status
@@ -52,12 +54,11 @@ function SoloAlbum({ picture }) {
         }
     }, [pictureId]); // This effect will run whenever pictureId changes
 
-
-    const images = picture.imageGallery.map((image) => ({
-        original: urlFor(image.picture.asset._ref),
-        thumbnail: urlFor(image.picture.asset._ref),
-        description: image.caption,
-    }));
+    const images = pract?.imageGallery?.map((image) => ({
+        original: image.asset?._ref ? urlFor(image.asset._ref || '').url() : '',
+        thumbnail: image.asset?._ref ? urlFor(image.asset._ref || '').url() : '',
+        description: image.caption || '',
+    })) || [];
 
     const openGallery = (index) => {
         setIsGalleryOpen(true);
@@ -82,16 +83,19 @@ function SoloAlbum({ picture }) {
             <div className='background01 variant'></div>
             <div className='soloAlbumContainer'>
                 <div className='aboutCollections'>
-                    <h1>{pract.collectionName}</h1>
-                    <p>{pract.description}</p>
+                    <h1>{pract?.collectionName}</h1>
+                    <p>{pract?.description}</p>
                 </div>
-                <div className='pictures'>
-                    {pract && pract.imageGallery && pract.imageGallery.length > 0 && (
-                        pract.imageGallery.map((image, idx) => (
-                            <div className='picture' key={idx} onClick={() => openGallery(idx)}>
-                                <img src={urlFor(image.picture.asset._ref)} alt="" />
-                            </div>
-                        ))
+                <div className='pictures margin-02'>
+                    {pract?.imageGallery?.length > 0 && (
+                        pract.imageGallery.map((image, idx) => {
+                            console.log(image); // Debugging line
+                            return (
+                                <div className='picture' key={idx} onClick={() => openGallery(idx)}>
+                                    <img src={image.asset?._ref ? urlFor(image.asset._ref || '').url() : ''} alt="fadfgdf" />
+                                </div>
+                            );
+                        })
                     )}
                 </div>
                 <div className={`gallery-overlay ${isGalleryOpen ? 'gallery-open' : ''}`}>
@@ -101,7 +105,11 @@ function SoloAlbum({ picture }) {
                                 X
                             </div>
                             <ImageGallery
-                                items={images}
+                                items={images.map(image => ({
+                                    original: image.original,
+                                    thumbnail: image.thumbnail,
+                                    description: image.description,
+                                }))}
                                 startIndex={initialSlideIndex}
                                 showPlayButton={false}
                                 showFullscreenButton={false}

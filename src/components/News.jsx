@@ -1,42 +1,31 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import BlogPreview from "./BlogPreview";
 
-export default function News() {
+export default function News({ posts, authors }) {
+
+    if (!posts || !Array.isArray(posts) || posts.length === 0) {
+        return <div >
+            <p>Loading</p>
+        </div>; // Render a loading message or alternative content
+    }
+
+    if (!authors || !Array.isArray(authors) || authors.length === 0) {
+        return <div>
+            <p>Loading</p>
+        </div>; // Render a loading message or alternative content
+    }
+
     return (
         <div className='news'>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
+            {
+                posts.map((post, idx) => (
+                    <BlogPreview
+                        key={idx}
+                        post={post}
+                        idx={idx}
+                        authors={authors}
+                    />
+                ))
+            }
         </div>
     )
 }

@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function BlogPreview({ idx, post, authors }) {
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    };
+
     return (
         <div className='post' key={idx}>
             {authors.map((author) => {
@@ -11,7 +16,7 @@ export default function BlogPreview({ idx, post, authors }) {
                 return null;
             })}
             <h4>
-                <Link to={`/quit/${post._rev}`}>
+                <Link to={`/quit/${post._rev}`} onClick={scrollToTop}>
                     {post.title}
                 </Link>
             </h4>

@@ -48,7 +48,7 @@ function Quit({ posts, authors }) {
           <h4>{firstPost.publishedAt.slice(0, -14)}, {firstPost.publishedAt.slice(11, -8)}</h4>
         </div>
       </div>
-      <div className='posts'>
+      <div className='posts margin-02'>
         {
           posts.map((post, idx) => (
             <BlogPreview key={idx} post={post} idx={idx} authors={authors} />

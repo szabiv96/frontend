@@ -5,17 +5,54 @@ body {
   margin: 0;
 }
 
+.site {
+  opacity: 1;
+  animation-name: siteTrans;
+  animation-duration: 0.3s;
+}
+
+.skeleton-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #ff8a00;
+}
+
+.skeleton-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #ff8a00;
+}
+
+@keyframes siteTrans {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .loading {
   width: 100%;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: white;
+  animation-name: loadingAnim;
+  animation-duration: 1s;
+  opacity: 1;
 }
 
+@keyframes loadingAnim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .landingText01 {
   font-family: "Bungee", cursive;
   color: rgb(14, 14, 14);
@@ -113,7 +150,7 @@ body {
 .nav {
   position: absolute;
   width: 48%;
-  z-index: 99;
+  z-index: 19;
   right: 0%;
   display: inline-flex;
   flex-direction: row;
@@ -218,6 +255,25 @@ body {
 .news button {
   width: 30%;
 }
+.news .post {
+  width: 40%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: "Azeret Mono", monospace;
+  padding: 1%;
+  border: 1px black solid;
+}
+.news .post h4 {
+  font-size: 1.3vw;
+  font-family: "Bungee", cursive;
+}
+.news .post h4 a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .contact {
   position: absolute;
@@ -254,6 +310,9 @@ body {
   font-family: "Azeret Mono", monospace;
   padding: 2%;
 }
+.aboutCollections h1 {
+  width: 47%;
+}
 
 .background01 {
   filter: contrast(590%) brightness(1100%);
@@ -280,6 +339,10 @@ body {
 
 .margin-01 {
   padding-top: 10%;
+}
+
+.margin-02 {
+  margin-bottom: 20%;
 }
 
 .background03 {
@@ -331,7 +394,7 @@ body {
   width: 93%;
   height: 37vh;
   border: rgb(255, 255, 255) 3px solid;
-  z-index: 99;
+  z-index: 20;
   margin: 3%;
 }
 .albumContainer .album .imgContainer .decor .inside {
@@ -339,14 +402,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
+  width: 90%;
   height: 11vh;
   border-bottom: white 3px solid;
+  text-align: end;
 }
 .albumContainer .album .imgContainer .decor .inside h1 {
   color: white;
-  font-size: 2.5vw;
+  font-size: 1.5vw;
   margin-right: 10px;
+}
+.albumContainer .album .imgContainer .decor .inside h1:hover {
+  color: #ff8a00;
 }
 .albumContainer .album .imgContainer .decor .inside2 {
   height: 100%;
@@ -397,7 +464,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   width: 100%;
   gap: 10px;
@@ -421,9 +488,10 @@ body {
   position: fixed;
   width: 100%;
   height: 100vh;
+  z-index: 20;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255);
   transition: opacity 1s ease, visibility 1s ease;
   visibility: hidden;
   pointer-events: none;
@@ -495,7 +563,6 @@ body {
   gap: 5%;
   width: 100%;
   margin-top: 7%;
-  margin-bottom: 7%;
 }
 .posts .post {
   width: 40%;
@@ -543,10 +610,56 @@ body {
 
 .footer {
   width: 100%;
-  height: 50vh;
-  background-color: black;
+  height: 20vh;
+  background-color: rgb(255, 255, 255);
   z-index: 22;
-  margin-top: 93%;
+  position: fixed;
+  margin: 0;
+  bottom: -20vh;
+  padding: 1%;
+}
+.footer .credits {
+  border: rgb(51, 51, 51) 3px solid;
+  height: 100%;
+  color: rgb(51, 51, 51);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Azeret Mono", monospace;
+  font-size: 1.5vh;
+}
+
+.footerShow {
+  animation-name: footerMove;
+  animation-duration: 0.3s;
+  bottom: 0;
+}
+
+@keyframes footerMove {
+  0% {
+    bottom: -20%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+.footerHide {
+  animation-name: footerMove2;
+  animation-duration: 0.3s;
+  bottom: -20%;
+}
+
+@keyframes footerMove2 {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -20%;
+  }
+}
+.new-position {
+  position: relative !important;
 }
 
 .arrow01 {
@@ -685,6 +798,34 @@ body {
   }
   100% {
     stroke: #ff8a00;
+  }
+}
+.movePic {
+  animation-name: landingIMGMove;
+  animation-duration: 0.3s;
+  margin-top: -10%;
+}
+
+.moveBackPic {
+  animation-name: landingIMGMove2;
+  animation-duration: 0.3s;
+  margin-top: 0%;
+}
+
+@keyframes landingIMGMove2 {
+  0% {
+    margin-top: -10%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+@keyframes landingIMGMove {
+  0% {
+    margin-top: 0%;
+  }
+  100% {
+    margin-top: -10%;
   }
 }
 @media only screen and (max-width: 850px) {

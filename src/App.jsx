@@ -111,9 +111,10 @@ export default function App() {
 
   return (
     <>
+    <div className='site'>
         <Header />
           <Routes>
-            <Route path="/" element={<Home cvDatas={cvDatas} />} />
+            <Route path="/" element={<Home cvDatas={cvDatas} posts={posts} authors={authors} />} />
             <Route path="/gallery/*" element={<CarefullyKept pictures={pictures} />} />
             <Route path="/quit" element={<Quit posts={posts} authors={authors} />} />
             {pictures.map((picture) => (
@@ -132,6 +133,7 @@ export default function App() {
             ))}
           </Routes>
           <Footer />
+          </div>
     </>
   );
 }

@@ -4,7 +4,9 @@ import CvDropdown from '../components/CvDropdown'
 import News from '../components/News'
 
 function Home({
-  cvDatas
+  cvDatas,
+  posts,
+  authors
 }) {
   return (
     <>
@@ -17,7 +19,7 @@ function Home({
           <h3>VARGA SZABOLCS LAJOS</h3><h3 className='n'>&nbsp;VARGA SZABOLCS LAJOS</h3>
         </div>
         <Arrows />
-        <News />
+        <News posts={posts} authors={authors} />
         <CvDropdown cvDatas={cvDatas} />
         <Contact />
     </>
