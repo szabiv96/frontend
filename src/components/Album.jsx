@@ -11,12 +11,22 @@ const builder = imageUrlBuilder(client)
 
 export default function Album({ details, collectionName, picture, description }) {
 
+    const targetDiv = document.querySelector('.footer');
+
     return (
-        <div className='album' >
+        <div className='album'
+            onClick={() => {
+                targetDiv.classList.remove("footerShow");
+                targetDiv.classList.add("footerHide");
+            }} >
             <div className='imgContainer'>
                 <Link to={`/gallery/${details._id}`}>
                     <div className='decor'>
-                        <div className='inside'>
+                        <div className='inside'
+                            onClick={() => {
+                                targetDiv.classList.remove("footerShow");
+                                targetDiv.classList.add("footerHide");
+                            }}>
                             <h1>{collectionName}</h1>
                         </div>
                         <div className='inside2'>

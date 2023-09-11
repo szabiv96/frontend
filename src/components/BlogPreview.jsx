@@ -20,7 +20,16 @@ export default function BlogPreview({ idx, post, authors }) {
                     {post.title}
                 </Link>
             </h4>
-            <h5>{post.publishedAt.slice(0, -14)}, {post.publishedAt.slice(11, -8)}</h5>
+            <h5>
+                {post.publishedAt ? (
+                    <>
+                        {post.publishedAt.slice(0, -14)}, {post.publishedAt.slice(11, -8)}
+                    </>
+                ) : (
+                    'Publication Date Missing' // Handle the case when publishedAt is undefined
+                )}
+            </h5>
         </div>
+
     )
 }

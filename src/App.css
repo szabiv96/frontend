@@ -11,18 +11,6 @@ body {
   animation-duration: 0.3s;
 }
 
-.skeleton-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: #ff8a00;
-}
-
-.skeleton-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: #ff8a00;
-}
-
 @keyframes siteTrans {
   0% {
     opacity: 0;
@@ -939,7 +927,7 @@ body {
     padding-top: 8% !important;
   }
 }
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   .nav {
     display: none !important;
   }

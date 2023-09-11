@@ -18,7 +18,7 @@ function SoloAlbum({ picture }) {
     const [pictureId, setPictureId] = useState('');
     const [pract, setPract] = useState({});
 
-    
+
 
     useEffect(() => {
         let isMounted = true; // Flag to track component mount status
@@ -73,10 +73,12 @@ function SoloAlbum({ picture }) {
         // Data is still loading, show a loading message or null
         return (
             <div className='loading'>
-                <p>EZT AZ ÜZENETET NEM LENNE SZABAD TUDNOD ELOLVASNOD! </p>
+                <p>Loading ... </p>
             </div>
         );
     }
+
+    const targetDiv = document.querySelector('.footer');
 
     return (
         <>
@@ -89,9 +91,15 @@ function SoloAlbum({ picture }) {
                 <div className='pictures margin-02'>
                     {pract?.imageGallery?.length > 0 && (
                         pract.imageGallery.map((image, idx) => {
-                            console.log(image); // Debugging line
                             return (
-                                <div className='picture' key={idx} onClick={() => openGallery(idx)}>
+                                <div className='picture' key={idx}
+                                    onClick={() => {
+                                        openGallery(idx)
+                                        if (targetDiv) {
+                                            targetDiv.classList.remove("footerShow");
+                                            targetDiv.classList.add("footerHide");
+                                        }
+                                    }}>
                                     <img src={image.asset?._ref ? urlFor(image.asset._ref || '').url() : ''} alt="fadfgdf" />
                                 </div>
                             );

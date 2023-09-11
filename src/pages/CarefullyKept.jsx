@@ -5,7 +5,7 @@ function CarefullyKept({ pictures }) {
 
   if (!pictures || !Array.isArray(pictures) || pictures.length === 0) {
     return <div className='loading'>
-      <p>EZT AZ ÜZENETET NEM LENNE SZABAD TUDNOD ELOLVASNOD! </p>
+      <p>Loading ... </p>
     </div> // Render a loading message or alternative content
   }
 

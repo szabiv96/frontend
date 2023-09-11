@@ -14,17 +14,26 @@ export default function News({ posts, authors }) {
         </div>; // Render a loading message or alternative content
     }
 
+
+    const highlightedPosts = posts.slice(2);
+/*     console.log(highlightedPosts); */
+
     return (
         <div className='news'>
-            {
-                posts.map((post, idx) => (
-                    <BlogPreview
-                        key={idx}
-                        post={post}
-                        idx={idx}
-                        authors={authors}
-                    />
-                ))
+            {highlightedPosts ? (
+                <>
+                    {highlightedPosts.map((post, idx) => (
+                        <BlogPreview
+                            key={idx}
+                            post={post}
+                            idx={idx}
+                            authors={authors}
+                        />
+                    ))}
+                </>
+            ) : (
+                ' post is missing '
+            )
             }
         </div>
     )
