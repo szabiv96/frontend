@@ -36,7 +36,15 @@ export default function Post({ post, authors }) {
       <div className='post margin-02'>
         <h1 className='margin-01'>{post.title}</h1>
         <h5>{author.name}</h5>
-        <h5>{post.publishedAt.slice(0, -14)}, {post.publishedAt.slice(11, -8)}</h5>
+        <h5>
+          {post.publishedAt ? (
+            <>
+              {post.publishedAt.slice(0, -14)}, {post.publishedAt.slice(11, -8)}
+            </>
+          ) : (
+            'Publication Date Missing' // Handle the case when publishedAt is undefined
+          )}
+        </h5>
         <PortableText
           value={post.body}
           components={myPortableTextComponents}

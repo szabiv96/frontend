@@ -9,7 +9,7 @@ body {
 .site {
     opacity: 1;
     animation-name: siteTrans;
-    animation-duration: 0.3s;
+    animation-duration: 1.5s;
 
 }
 
@@ -419,13 +419,30 @@ body {
         align-items: flex-start;
         width: 30%;
 
-        .imgContainer {
+        .image-container {
             display: flex;
             width: 100%;
             height: 40vh;
             overflow: hidden;
             border-top-left-radius: 25%;
             position: relative;
+
+            .loading-animation {
+                background: #ccc;
+                /* Background color for the loading animation */
+                /* Add your loading animation styles here */
+            }
+
+            .hidden {
+                opacity: 0;
+                transition: opacity 1.5s ease;
+                /* Adjust the duration and easing as needed */
+            }
+
+            .visible {
+                opacity: 1;
+                transition: opacity 1.5s ease;
+            }
 
             .decor {
                 display: flex;
@@ -524,7 +541,7 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content:center;
+        justify-content: center;
         align-items: flex-start;
         width: 100%;
         gap: 10px;
@@ -535,6 +552,24 @@ body {
             width: 20%;
             height: 30vh;
             overflow: hidden;
+
+
+            .loading-animation {
+                background: #ccc;
+                /* Background color for the loading animation */
+                /* Add your loading animation styles here */
+            }
+
+            .hidden {
+                opacity: 0;
+                transition: opacity 1.5s ease;
+                /* Adjust the duration and easing as needed */
+            }
+
+            .visible {
+                opacity: 1;
+                transition: opacity 1.5s ease;
+            }
 
             img {
                 width: 100%;
@@ -624,9 +659,16 @@ body {
         align-items: center;
         padding-top: 5%;
 
-        img {
-            width: 40%;
+        .image-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 40%;
+            }
         }
+
     }
 }
 
@@ -652,6 +694,7 @@ body {
         font-family: 'Azeret Mono', monospace;
         padding: 1%;
         border: 1px black solid;
+        margin-bottom: 5%;
 
         h4 {
             font-size: 1.3vw;
@@ -689,12 +732,12 @@ body {
         align-self: flex-start;
     }
 
-    p{
+    p {
         text-align: justify;
     }
 }
 
-.footer{
+.footer {
     width: 100%;
     height: 20vh;
     background-color: rgb(255, 255, 255);
@@ -943,13 +986,9 @@ body {
 
 // responsive media querys
 
-@media only screen and (min-width: 1200px) {
-    
-}
+@media only screen and (min-width: 1200px) {}
 
-@media only screen and (min-width: 992px) {
-
-}
+@media only screen and (min-width: 992px) {}
 
 @media only screen and (max-width: 850px) {
 

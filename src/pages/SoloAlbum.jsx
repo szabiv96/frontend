@@ -3,6 +3,7 @@ import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import client from '../sanityClient';
 import imageUrlBuilder from '@sanity/image-url';
+import ImageWithLoading from '../components/ImageWithLoading';
 
 function urlFor(source) {
     return builder.image(source);
@@ -11,7 +12,7 @@ function urlFor(source) {
 const builder = imageUrlBuilder(client);
 
 function SoloAlbum({ picture }) {
-    console.log(picture);
+    /* console.log(picture); */
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
     const [initialSlideIndex, setInitialSlideIndex] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -80,6 +81,13 @@ function SoloAlbum({ picture }) {
 
     const targetDiv = document.querySelector('.footer');
 
+    if (targetDiv) {
+        targetDiv.classList.remove("footerShow");
+        targetDiv.classList.add("footerHide");
+    } else {
+        console.error(".footer element not found");
+    }
+
     return (
         <>
             <div className='background01 variant'></div>
@@ -98,9 +106,14 @@ function SoloAlbum({ picture }) {
                                         if (targetDiv) {
                                             targetDiv.classList.remove("footerShow");
                                             targetDiv.classList.add("footerHide");
+                                        } else {
+                                            console.error(".footer element not found");
                                         }
                                     }}>
-                                    <img src={image.asset?._ref ? urlFor(image.asset._ref || '').url() : ''} alt="fadfgdf" />
+                                    <ImageWithLoading
+                                        src={image.asset?._ref ? urlFor(image.asset._ref || '').url() : ''}
+                                        alt="fadfgdf"
+                                    />
                                 </div>
                             );
                         })

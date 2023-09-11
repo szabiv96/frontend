@@ -1,6 +1,7 @@
 import imageUrlBuilder from '@sanity/image-url';
 import client from '../sanityClient';
 import BlogPreview from '../components/BlogPreview';
+import ImageWithLoading from '../components/ImageWithLoading';
 
 function urlFor(source) {
   return builder.image(source);
@@ -40,12 +41,23 @@ function Quit({ posts, authors }) {
         </div>
         <div className='background03'></div>
         <div className='left'>
-          <img src={urlFor(firstPost.mainImage.asset._ref)} alt="kép" />
+          <ImageWithLoading 
+          src={urlFor(firstPost.mainImage.asset._ref)}
+          alt="kép"
+          />
         </div>
         <div className='right'>
           <h4>{firstPost.title}</h4>
           <h5>{highlightedAuthor.name}</h5>
-          <h4>{firstPost.publishedAt.slice(0, -14)}, {firstPost.publishedAt.slice(11, -8)}</h4>
+          <h4>
+                {firstPost.publishedAt ? (
+                    <>
+                        {firstPost.publishedAt.slice(0, -14)}, {firstPost.publishedAt.slice(11, -8)}
+                    </>
+                ) : (
+                    'Publication Date Missing' // Handle the case when publishedAt is undefined
+                )}
+            </h4>
         </div>
       </div>
       <div className='posts margin-02'>
