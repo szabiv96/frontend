@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 
 export default function BlogPreview({ idx, post, authors }) {
 
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     };
+
+    /* console.log(post); */
 
     return (
         <div className='post' key={idx}>
@@ -21,9 +24,9 @@ export default function BlogPreview({ idx, post, authors }) {
                 </Link>
             </h4>
             <h5>
-                {post.publishedAt ? (
+                {post._createdAt ? (
                     <>
-                        {post.publishedAt.slice(0, -14)}, {post.publishedAt.slice(11, -8)}
+                        {post._createdAt.slice(0, -10)}, {post._createdAt.slice(11, -4)}
                     </>
                 ) : (
                     'Publication Date Missing' // Handle the case when publishedAt is undefined

@@ -1137,6 +1137,45 @@ body {
         padding-top: 8% !important;
     }
 
+    .news{
+        .post {
+            h4 {
+                font-size: 2.2vw;
+            }
+        }
+    }
+
+    .site {
+        height: 130vh;
+    }
+
+
+    .pictures {
+        
+        margin-bottom: 35% !important;
+        
+        .picture {
+            width: 20% !important;
+            width: 20vh !important;
+            display: flex;
+            align-items: center;
+    
+            img {
+                height: 50vh !important;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .image-container {
+        img{
+            width: 70% !important;
+        }
+    }
+
+    
+
 }
 
 @media only screen and (max-width: 500px) {

@@ -15,6 +15,7 @@ export default function Post({ post, authors }) {
     return <div>Loading...</div>;
   }
 
+  console.log(post);
   const authorRRef = post.author._ref;
   const author = authors.find((aut, idx) => aut._id === authorRRef);
 
@@ -37,9 +38,9 @@ export default function Post({ post, authors }) {
         <h1 className='margin-01'>{post.title}</h1>
         <h5>{author.name}</h5>
         <h5>
-          {post.publishedAt ? (
+          {post._createdAt ? (
             <>
-              {post.publishedAt.slice(0, -14)}, {post.publishedAt.slice(11, -8)}
+              {post._createdAt.slice(0, -10)}, {post._createdAt.slice(11, -4)}
             </>
           ) : (
             'Publication Date Missing' // Handle the case when publishedAt is undefined

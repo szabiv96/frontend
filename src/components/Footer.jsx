@@ -36,9 +36,9 @@ export default function App() {
                 setShowFooter(false);
             }
 
-            if (window.innerHeight === window.screen.height) {
+/*             if (window.innerHeight === window.screen.height) {
                 targetDiv.classList.remove("footerShow");
-            }
+            } */
         };
 
         window.addEventListener('scroll', handleScroll);
