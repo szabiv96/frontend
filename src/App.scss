@@ -1339,6 +1339,7 @@ body {
             padding: 2%;
             border-bottom-left-radius: 10%;
             border-bottom-right-radius: 10%;
+
             p {
                 font-size: 0.6rem;
             }
@@ -1359,7 +1360,7 @@ body {
 
             justify-content: center;
 
-            h5{
+            h5 {
                 font-size: 1rem;
             }
 
@@ -1442,6 +1443,12 @@ body {
         img {
             width: 95%;
             margin-right: 10px;
+        }
+    }
+
+    .footer {
+        .credits {
+            text-align: center;
         }
     }
 
