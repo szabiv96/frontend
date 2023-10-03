@@ -1171,6 +1171,14 @@ body {
   .soloAlbumContainer {
     padding-bottom: 20%;
   }
+  .soloAlbumContainer .aboutCollections h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .soloAlbumContainer .pictures .picture {
+    width: 40% !important;
+    height: 20vh !important;
+  }
   .soloAlbumContainer .pictures .picture .image-container img {
     width: 100% !important;
     -o-object-fit: cover;

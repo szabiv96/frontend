@@ -1410,8 +1410,17 @@ body {
 
         padding-bottom: 20%;
 
+        .aboutCollections {
+            h1 {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        }
+
         .pictures {
             .picture {
+                width: 40% !important;
+                height: 20vh !important;
 
                 .image-container {
 
