@@ -16,7 +16,6 @@ export default function Educations({ educations }) {
                 onClick={() => setOpen2(!open2)}
                 aria-controls="example-collapse-text"
                 aria-expanded={open2}
-                className='noBottomBorder'
             >
                 EDUCATION HISTORY
             </Button>
