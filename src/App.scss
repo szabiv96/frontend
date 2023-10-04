@@ -1389,6 +1389,7 @@ body {
     .contact {
         top: 260% !important;
         align-items: center;
+        padding-bottom: 30%;
 
         h2 {
             font-size: 1rem !important;
@@ -1414,6 +1415,10 @@ body {
             h1 {
                 font-size: 1.5rem;
                 font-weight: bold;
+            }
+
+            p {
+                font-size: 9pt;
             }
         }
 

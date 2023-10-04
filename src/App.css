@@ -1156,6 +1156,7 @@ body {
   .contact {
     top: 260% !important;
     align-items: center;
+    padding-bottom: 30%;
   }
   .contact h2 {
     font-size: 1rem !important;
@@ -1174,6 +1175,9 @@ body {
   .soloAlbumContainer .aboutCollections h1 {
     font-size: 1.5rem;
     font-weight: bold;
+  }
+  .soloAlbumContainer .aboutCollections p {
+    font-size: 9pt;
   }
   .soloAlbumContainer .pictures .picture {
     width: 40% !important;

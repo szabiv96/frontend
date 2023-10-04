@@ -51,7 +51,8 @@ export default function App() {
     return (
         <div className='footer'>
             <div className='credits'>
-                ©2023 Varga Szabolcs Lajos, All rights reserved.
+                ©2023 Varga Szabolcs Lajos, All rights reserved!
+                
             </div>
         </div>
     );

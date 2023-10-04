@@ -68,6 +68,7 @@ function SoloAlbum({ picture }) {
 
     const closeGallery = () => {
         setIsGalleryOpen(false);
+        document.body.style.overflow = "auto";
     };
 
     if (loading) {
@@ -109,10 +110,11 @@ function SoloAlbum({ picture }) {
                                         } else {
                                             console.error(".footer element not found");
                                         }
+                                        document.body.style.overflow = "hidden";
                                     }}>
                                     <ImageWithLoading
                                         src={image.asset?._ref ? urlFor(image.asset._ref || '').url() : ''}
-                                        alt="fadfgdf"
+                                        alt=""
                                     />
                                 </div>
                             );
