@@ -22,9 +22,6 @@ export default function Album({ details, collectionName, picture, description })
                         <div className='inside'>
                             <h1>{collectionName}</h1>
                         </div>
-                        <div className='inside2'>
-                            <p>{description}</p>
-                        </div>
                     </div>
                     <ImageWithLoading
                         src={urlFor(picture)}

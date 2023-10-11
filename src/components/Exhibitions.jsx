@@ -9,6 +9,10 @@ export default function Exhibitions({ exhibitions }) {
 
     const [open, setOpen] = useState(false);
 
+    console.log(exhibitions);
+
+    const latestExhibs = exhibitions.slice(0, 4);
+    console.log(latestExhibs);
 
     return (
         <>
@@ -23,12 +27,12 @@ export default function Exhibitions({ exhibitions }) {
             <Collapse in={open}>
                 <div id="example-collapse-text">
                     <div className='exhibition'>
-                        {Array.isArray(exhibitions) ? (
-                            exhibitions.map((exhibition, idx) => (
+                        {Array.isArray(latestExhibs) ? (
+                            latestExhibs.map((exhibition, idx) => (
                                 <Container className='exhib' key={idx}>
                                     <Row>
-                                        <Col>{exhibition.year}</Col>
-                                        <Col xs={5}>{exhibition.title}</Col>
+                                        <Col sm={4}>{exhibition.year}</Col>
+                                        <Col sm={4}>{exhibition.title}</Col>
                                         <Col>{exhibition.space}</Col>
                                         <Col>{exhibition.place}</Col>
                                     </Row>
@@ -37,6 +41,7 @@ export default function Exhibitions({ exhibitions }) {
                         ) : (
                             <p>Please reload the page!</p>
                         )}
+                        <a href='/cv'><h3>... more of the CV!</h3></a>
                     </div>
                 </div>
             </Collapse>

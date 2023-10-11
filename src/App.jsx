@@ -9,7 +9,7 @@ import SoloAlbum from './pages/SoloAlbum';
 import Quit from './pages/Quit';
 import Post from './pages/Post';
 import Footer from './components/Footer';
-
+import CV from './pages/Cv';
 
 export default function App() {
 
@@ -117,6 +117,7 @@ export default function App() {
             <Route path="/" element={<Home cvDatas={cvDatas} posts={posts} authors={authors} />} />
             <Route path="/gallery/*" element={<CarefullyKept pictures={pictures} />} />
             <Route path="/quit" element={<Quit posts={posts} authors={authors} />} />
+            <Route path="/cv" element={<CV cvDatas={cvDatas} />} />
             {pictures.map((picture) => (
               <Route
                 key={picture._id}
