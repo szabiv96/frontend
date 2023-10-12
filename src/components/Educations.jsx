@@ -35,6 +35,7 @@ export default function Educations({ educations }) {
                         ) : (
                             <p>No education data available.</p>
                         )}
+                        <a href='/cv'><h3>... more of the CV!</h3></a>
                     </div>
 
                 </div>

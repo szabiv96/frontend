@@ -8,8 +8,9 @@ function CarefullyKept({ pictures }) {
       <p>Loading ... </p>
     </div> // Render a loading message or alternative content
   }
+  
 
-  console.log(pictures);
+  /* console.log(pictures); */
 
   return (
     <>

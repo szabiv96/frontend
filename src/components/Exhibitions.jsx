@@ -9,10 +9,10 @@ export default function Exhibitions({ exhibitions }) {
 
     const [open, setOpen] = useState(false);
 
-    console.log(exhibitions);
+    /* console.log(exhibitions); */
 
     const latestExhibs = exhibitions.slice(0, 4);
-    console.log(latestExhibs);
+/*     console.log(latestExhibs); */
 
     return (
         <>

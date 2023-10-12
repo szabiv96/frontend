@@ -1,6 +1,7 @@
 import { PortableText } from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
 import client from '../sanityClient';
+import BackButton from '../components/BackButton';
 
 function urlFor(source) {
   return builder.image(source)
@@ -34,6 +35,7 @@ export default function Post({ post, authors }) {
   return (
     <>
       <div className='background02'></div>
+      <BackButton />
       <div className='post margin-02'>
         <h1 className='margin-01'>{post.title}</h1>
         <h5>{author.name}</h5>

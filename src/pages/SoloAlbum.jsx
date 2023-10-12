@@ -4,6 +4,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import client from '../sanityClient';
 import imageUrlBuilder from '@sanity/image-url';
 import ImageWithLoading from '../components/ImageWithLoading';
+import BackButton from '../components/BackButton';
 
 function urlFor(source) {
     return builder.image(source);
@@ -92,6 +93,7 @@ function SoloAlbum({ picture }) {
     return (
         <>
             <div className='background01 variant'></div>
+            <BackButton />
             <div className='soloAlbumContainer'>
                 <div className='aboutCollections'>
                     <h1>{pract?.collectionName}</h1>

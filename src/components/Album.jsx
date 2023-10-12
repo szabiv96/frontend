@@ -3,6 +3,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import client from '../sanityClient';
 import { Link } from 'react-router-dom';
 import ImageWithLoading from './ImageWithLoading';
+import BackButton from './BackButton';
 
 function urlFor(source) {
     return builder.image(source)
