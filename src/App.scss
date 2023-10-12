@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+a {
+    color: inherit;
+}
+
 .site {
     opacity: 1;
     animation-name: siteTrans;
@@ -381,17 +385,16 @@ body {
 .backButton {
     width: 15%;
     border-top-right-radius: 100px;
-    padding-left: 3%;
     background-color: transparent;
-    border: none;
-    text-align: left;
-    color: rgb(88, 88, 88);
-    font-size: 20pt;
+    text-align: center;
+    color: rgb(0, 0, 0);
     position: absolute;
     border: solid rgb(14, 14, 14) 1px;
     left: -1%;
     margin-top: 1%;
-    height: 5.7vh;
+    padding-top: 2px;
+    padding-bottom: 8px;
+    font-size: 1.5vw;
 }
 
 .aboutCollections {
@@ -471,14 +474,13 @@ body {
 }
 
 .albumContainer {
-    width: 90%;
+    width: 100%;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-    margin-left: 5%;
     z-index: 99;
 
     .album {
@@ -600,11 +602,11 @@ body {
 
 .soloAlbumContainer {
     display: flex;
-    width: 90%;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 3%;
+    padding: 5%;
 
     .pictures {
         display: flex;
@@ -717,6 +719,10 @@ body {
         justify-content: flex-end;
         font-family: 'Azeret Mono', monospace;
         color: rgb(12, 12, 12);
+
+        a {
+            color: inherit;
+        }
 
     }
 
@@ -1083,12 +1089,24 @@ body {
 
 // responsive media querys
 
-@media only screen and (min-width: 1200px) {}
+@media only screen and (max-width: 1580px) {
+    .exhibModifier {
+        padding-bottom: 15%;
+    }
+}
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
+    .backButton {
+        font-size: 10pt;
+        left: -1% !important;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     .albumContainer {
-
+        padding-bottom: 10%;
         .album {
             width: 45% !important;
             height: 30vh;
@@ -1105,6 +1123,56 @@ body {
         }
     }
 
+    .soloAlbumContainer {
+
+        padding-bottom: 20%;
+
+        .aboutCollections {
+            h1 {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 9pt;
+            }
+        }
+
+        .pictures {
+            .picture {
+                width: 20% !important;
+                height: 10vh !important;
+
+                .image-container {
+
+                    img {
+                        height: 20vh !important;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .exhibModifier {
+        padding-bottom: 20% !important;
+    }
+
+}
+
+@media only screen and (max-width: 950px) {
+    .exhibModifier {
+        padding-bottom: 35% !important;
+
+        .exhib {
+            
+            margin-bottom: 5% !important;
+            .row {
+                font-size: 12pt;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 850px) {
@@ -1197,7 +1265,7 @@ body {
     }
 
     .exhibModifier {
-        padding-bottom: 40%;
+        padding-bottom: 40% !important;
     }
 
     .exhibitions {
@@ -1267,9 +1335,7 @@ body {
     }
 
     .albumContainer {
-
-        justify-content: flex-start;
-        width: 93%;
+        padding: 2%;
         height: 75vh;
         position: absolute;
         overflow: auto;
@@ -1302,13 +1368,12 @@ body {
         margin-bottom: 35% !important;
 
         .picture {
-            width: 20% !important;
-            width: 20vh !important;
+            width: none;
             display: flex;
             align-items: center;
 
             img {
-                height: 50vh !important;
+                width: 100% !important;
                 object-fit: cover;
                 object-position: center;
             }
@@ -1331,7 +1396,7 @@ body {
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
     .backButton {
         margin-top: 5%;
         border-top-right-radius: 0;
@@ -1345,7 +1410,7 @@ body {
     }
 
     .exhibModifier {
-        padding-bottom: 35%;
+        padding-bottom: 45% !important;
     }
 
     .exhibition {
@@ -1456,6 +1521,7 @@ body {
         flex-wrap: wrap !important;
         height: 50vh;
         z-index: 54;
+        padding-left: 2%;
 
         .album {
             width: 95% !important;
@@ -1538,8 +1604,7 @@ body {
         flex-direction: column;
 
         .post {
-            width: 92%;
-            padding: 3%;
+            width: 100%;
 
             h4 {
                 font-size: 1rem;
@@ -1572,12 +1637,14 @@ body {
     .soloAlbumContainer {
 
         padding-bottom: 20%;
+        padding-top: 15%;
 
         .aboutCollections {
             h1 {
+                width: 100%;
                 font-size: 1.5rem;
                 font-weight: bold;
-            }
+                text-align: center !important;            }
 
             p {
                 font-size: 9pt;
@@ -1592,7 +1659,7 @@ body {
                 .image-container {
 
                     img {
-                        width: 100% !important;
+                        height: 30vh !important;
                         object-fit: cover;
                     }
                 }

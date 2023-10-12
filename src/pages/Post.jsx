@@ -38,7 +38,7 @@ export default function Post({ post, authors }) {
       <BackButton />
       <div className='post margin-02'>
         <h1 className='margin-01'>{post.title}</h1>
-        <h5>{author.name}</h5>
+        <h5>{author?.name}</h5>
         <h5>
           {post._createdAt ? (
             <>

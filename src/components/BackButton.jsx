@@ -9,7 +9,7 @@ function BackButton() {
     };
 
     return (
-        <div className='backButton' onClick={handleGoBack}>back</div>
+        <div className='backButton' onClick={handleGoBack}>Prev</div>
     );
 }
 

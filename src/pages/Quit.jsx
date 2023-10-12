@@ -27,7 +27,7 @@ function Quit({ posts, authors }) {
   const authorRef = firstPost.author._ref;
   const highlightedAuthor = authors.find((author, idx) => author._id === authorRef)
 
-  /* console.log(highlightedAuthor); */
+  /* console.log(firstPost); */
 
   return (
     <>
@@ -47,7 +47,7 @@ function Quit({ posts, authors }) {
           />
         </div>
         <div className='right'>
-          <h4>{firstPost.title}</h4>
+          <h4><a href={`/quit/${firstPost._rev}`}>{firstPost.title}</a></h4>
           <h5>{highlightedAuthor.name}</h5>
           <h4>
                 {firstPost.publishedAt ? (
