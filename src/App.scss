@@ -269,6 +269,8 @@ a {
     .exhibition {
         align-items: center;
         padding-top: 2%;
+        border-bottom: 2px black solid;
+        padding-bottom: 5%;
 
         h1 {
             text-align: center;
@@ -643,7 +645,7 @@ a {
             }
 
             img {
-                width: 100%;
+                height: 60vh;
                 object-fit: cover;
                 object-position: center;
             }
@@ -1670,6 +1672,7 @@ a {
 
     .post {
         padding-bottom: 40%;
+        padding-top: 15%;
 
         h1 {
             font-size: 2rem;

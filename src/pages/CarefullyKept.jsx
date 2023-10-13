@@ -10,7 +10,7 @@ function CarefullyKept({ pictures }) {
   }
   
 
-  /* console.log(pictures); */
+  console.log(pictures);
 
   return (
     <>
@@ -18,7 +18,8 @@ function CarefullyKept({ pictures }) {
       <div className='aboutCollections'>
         <h1>Carefully kept...</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa excepturi obcaecati placeat cumque laudantium dignissimos, maiores enim dolore hic esse numquam voluptates suscipit nobis itaque aperiam voluptas. Amet porro, assumenda nesciunt quisquam distinctio ex incidunt, alias harum est ea cupiditate?
+          Itt találhatóak tematikusan összerendezve az eddig készült alkotásaim. Multimediális művésznek tartom magam, mivel különböző médiumokat használok.
+          Különböző műfajú és tecchnikával készült sorozatokat rövid leírásokkal láttam el. A műalkotásokkal kapcsolatban olvashatók blog bejegyzések a Quit menüpontban.
         </p>
       </div>
       <div className='albumContainer margin-02'>

@@ -244,6 +244,8 @@ a {
 .exhibitions .exhibition {
   align-items: center;
   padding-top: 2%;
+  border-bottom: 2px black solid;
+  padding-bottom: 5%;
 }
 .exhibitions .exhibition h1 {
   text-align: center;
@@ -559,7 +561,7 @@ a {
   transition: opacity 1.5s ease;
 }
 .soloAlbumContainer .pictures .picture img {
-  width: 100%;
+  height: 60vh;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -1382,6 +1384,7 @@ a {
   }
   .post {
     padding-bottom: 40%;
+    padding-top: 15%;
   }
   .post h1 {
     font-size: 2rem;
