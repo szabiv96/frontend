@@ -18,8 +18,8 @@ function CarefullyKept({ pictures }) {
       <div className='aboutCollections'>
         <h1>Carefully kept...</h1>
         <p>
-          Itt találhatóak tematikusan összerendezve az eddig készült alkotásaim. Multimediális művésznek tartom magam, mivel különböző médiumokat használok.
-          Különböző műfajú és tecchnikával készült sorozatokat rövid leírásokkal láttam el. A műalkotásokkal kapcsolatban olvashatók blog bejegyzések a Quit menüpontban.
+          Az a sok minden, amibe belekezdek vagy épp folytatom és újra előveszem az mind megtalálhat
+          itt gondosan válogatva, jól elrakva és összecsomagolva.
         </p>
       </div>
       <div className='albumContainer margin-02'>
