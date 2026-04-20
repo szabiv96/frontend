@@ -1,20 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function BlogPreview({ idx, post, authors }) {
-
+export default function BlogPreview({ post, authors }) {
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     };
 
-    /* console.log(post); */
-
     return (
-        <div className='post' key={idx}>
+        <div className='post'>
             {authors.map((author) => {
                 if (author._id === post.author?._ref) {
-                    return <p key={idx}>{author.name}</p>;
+                    return <p key={author._id}>{author.name}</p>;
                 }
                 return null;
             })}

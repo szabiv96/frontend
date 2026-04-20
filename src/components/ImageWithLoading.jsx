@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function ImageWithLoading({ src, alt }) {
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+    }, [src]);
 
     const handleImageLoad = () => {
         setIsLoading(false);

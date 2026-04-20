@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -8,7 +9,6 @@ export default function Header() {
   return (
     <>
       <div className={animation ? "menuAnimation menuButton" : "menuButton"} onClick={() => {
-        console.log("hello there");
         setShow(!show);
         setAnimation(!animation);
       }}>
@@ -17,11 +17,11 @@ export default function Header() {
         <div className='menuPart03'></div>
       </div>
       <div className={show ? "showMenu nav" : "nav"}>
-        <h4><a href="/">StarterPage</a></h4>
+        <h4><Link to="/">StarterPage</Link></h4>
         <h4>:</h4>
-        <h4><a href='/gallery'>CarefullyKept</a></h4>
+        <h4><Link to="/gallery">CarefullyKept</Link></h4>
         <h4>:</h4>
-        <h4><a href='/quit'>Quit</a></h4>
+        <h4><Link to="/quit">Quit</Link></h4>
       </div>
     </>
 

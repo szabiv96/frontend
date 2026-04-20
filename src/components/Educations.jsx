@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 export default function Educations({ educations }) {
 
@@ -24,7 +25,7 @@ export default function Educations({ educations }) {
                     <div className='exhibition'>
                         {Array.isArray(educations) ? (
                             educations.map((exhibition, idx) => (
-                                <Container className='exhib' key={idx}>
+                                <Container className='exhib' key={`${exhibition.startYear}-${exhibition.inst}-${idx}`}>
                                     <Row>
                                         <Col>{exhibition.startYear} - {exhibition.finishYear}</Col>
                                         <Col xs={5}>{exhibition.inst}</Col>
@@ -35,7 +36,7 @@ export default function Educations({ educations }) {
                         ) : (
                             <p>No education data available.</p>
                         )}
-                        <a href='/cv'><h3>... more of the CV!</h3></a>
+                        <Link to="/cv"><h3>... more of the CV!</h3></Link>
                     </div>
 
                 </div>

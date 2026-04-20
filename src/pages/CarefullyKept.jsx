@@ -1,16 +1,16 @@
 import Album from '../components/Album';
 
 function CarefullyKept({ pictures }) {
-
-
-  if (!pictures || !Array.isArray(pictures) || pictures.length === 0) {
-    return <div className='loading'>
-      <p>Loading ... </p>
-    </div> // Render a loading message or alternative content
+  if (!Array.isArray(pictures) || pictures.length === 0) {
+    return (
+      <div className='statusScreen'>
+        <div className='statusCard'>
+          <h2>No artworks found</h2>
+          <p>The shared bootstrap request did not return any picture collections.</p>
+        </div>
+      </div>
+    );
   }
-  
-
-  console.log(pictures);
 
   return (
     <>
@@ -23,17 +23,15 @@ function CarefullyKept({ pictures }) {
         </p>
       </div>
       <div className='albumContainer margin-02'>
-        {
-          pictures.map((picture, idx) => (
-            <Album
-              key={idx}
-              collectionName={picture.collectionName}
-              picture={picture.imageGallery[0].asset._ref}
-              description={picture.description}
-              details={picture}
-            />
-          ))
-        }
+        {pictures.map((picture, idx) => (
+          <Album
+            key={picture._id || idx}
+            collectionName={picture.collectionName}
+            picture={picture.coverImageUrl}
+            description={picture.description}
+            details={picture}
+          />
+        ))}
       </div>
     </>
   );

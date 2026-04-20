@@ -14,9 +14,7 @@ export default function News({ posts, authors }) {
         </div>; // Render a loading message or alternative content
     }
 
-
     const highlightedPosts = posts.slice(2);
-/*     console.log(highlightedPosts); */
 
     return (
         <div className='news'>
@@ -24,9 +22,8 @@ export default function News({ posts, authors }) {
                 <>
                     {highlightedPosts.map((post, idx) => (
                         <BlogPreview
-                            key={idx}
+                            key={post._id || post._rev || idx}
                             post={post}
-                            idx={idx}
                             authors={authors}
                         />
                     ))}

@@ -4,15 +4,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 export default function Exhibitions({ exhibitions }) {
 
     const [open, setOpen] = useState(false);
 
-    /* console.log(exhibitions); */
-
     const latestExhibs = exhibitions.slice(0, 4);
-/*     console.log(latestExhibs); */
 
     return (
         <>
@@ -29,7 +27,7 @@ export default function Exhibitions({ exhibitions }) {
                     <div className='exhibition'>
                         {Array.isArray(latestExhibs) ? (
                             latestExhibs.map((exhibition, idx) => (
-                                <Container className='exhib' key={idx}>
+                                <Container className='exhib' key={`${exhibition.year}-${exhibition.title}-${idx}`}>
                                     <Row>
                                         <Col sm={4}>{exhibition.year}</Col>
                                         <Col sm={4}>{exhibition.title}</Col>
@@ -41,7 +39,7 @@ export default function Exhibitions({ exhibitions }) {
                         ) : (
                             <p>Please reload the page!</p>
                         )}
-                        <a href='/cv'><h3>... more of the CV!</h3></a>
+                        <Link to="/cv"><h3>... more of the CV!</h3></Link>
                     </div>
                 </div>
             </Collapse>

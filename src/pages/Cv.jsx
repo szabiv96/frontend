@@ -4,11 +4,9 @@ import Col from 'react-bootstrap/Col';
 import BackButton from '../components/BackButton';
 
 function CarefullyKept({ cvDatas }) {
-
     const exhibitions = cvDatas[0]?.exhibitions || [];
     const educations = cvDatas[0]?.educations || [];
     const projects = cvDatas[0]?.Projects || [];
-    console.log(cvDatas);
 
     if (!cvDatas || !Array.isArray(cvDatas) || cvDatas.length === 0) {
         return <div className='loading'>
@@ -26,7 +24,7 @@ function CarefullyKept({ cvDatas }) {
                     <h1>Exhibitions</h1>
                     {Array.isArray(exhibitions) ? (
                         exhibitions.map((exhibition, idx) => (
-                            <Container className='exhib' key={idx}>
+                            <Container className='exhib' key={`${exhibition.year}-${exhibition.title}-${idx}`}>
                                 <Row>
                                     <Col sm={4}>{exhibition.year}</Col>
                                     <Col sm={4}>{exhibition.title}</Col>
@@ -43,7 +41,7 @@ function CarefullyKept({ cvDatas }) {
                     <h1>Educations</h1>
                     {Array.isArray(educations) ? (
                         educations.map((education, idx) => (
-                            <Container className='exhib' key={idx}>
+                            <Container className='exhib' key={`${education.startYear}-${education.inst}-${idx}`}>
                                 <Row>
                                     <Col>{education.startYear} - {education.finishYear}</Col>
                                     <Col sm={4}>{education.inst}</Col>
@@ -59,10 +57,10 @@ function CarefullyKept({ cvDatas }) {
                     <h1>Projects</h1>
                     {Array.isArray(projects) ? (
                         projects.map((project, idx) => (
-                            <Container className='exhib' key={idx}>
+                            <Container className='exhib' key={`${project.year}-${project.name}-${idx}`}>
                                 <Row>
                                     <Col>{project.year}</Col>
-                                    <Col sm={4} ><a href={project.link} target="_blank">{project.name}</a></Col>
+                                    <Col sm={4} ><a href={project.link} target="_blank" rel="noreferrer">{project.name}</a></Col>
                                     <Col>{project.genre}</Col>
                                 </Row>
                             </Container>

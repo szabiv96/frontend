@@ -1,58 +1,68 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function getFooterThreshold(pathname) {
+    if (pathname === '/') {
+        return 0.1;
+    }
+
+    if (pathname === '/gallery') {
+        return 0.08;
+    }
+
+    if (/^\/gallery\/[^/]+$/.test(pathname)) {
+        return 0.06;
+    }
+
+    if (pathname === '/cv') {
+        return 0.06;
+    }
+
+    return 0.1;
+}
 
 export default function App() {
+    const { pathname } = useLocation();
     const [showFooter, setShowFooter] = useState(false);
-    const [scrollThreshold, setScrollThreshold] = useState(0.1); // Default threshold as a percentage
+    const thresholdRatio = useMemo(() => getFooterThreshold(pathname), [pathname]);
 
     useEffect(() => {
-        // Calculate the scroll threshold as a percentage of the page height
-        const calculatedThreshold = document.documentElement.scrollHeight * 0.1; // 10% of the page height
-        setScrollThreshold(calculatedThreshold);
+        const evaluateFooterVisibility = () => {
+            if (document.body.classList.contains('gallery-view-open')) {
+                setShowFooter(false);
+                return;
+            }
 
-        const handleScroll = () => {
             const scrollPosition = window.innerHeight + window.scrollY;
             const pageHeight = document.documentElement.scrollHeight;
             const viewportHeight = window.innerHeight;
-            const targetDiv = document.querySelector('.footer');
+            const threshold = pageHeight * thresholdRatio;
 
-            // First, check if there's no scrollbar by comparing pageHeight and viewportHeight
             if (pageHeight <= viewportHeight) {
-                if (targetDiv) {
-                    targetDiv.classList.remove("footerHide");
-                    targetDiv.classList.add("footerShow");
-                }
                 setShowFooter(true);
-            } else if (pageHeight - scrollPosition < scrollThreshold) {
-                if (targetDiv) {
-                    targetDiv.classList.remove("footerHide");
-                    targetDiv.classList.add("footerShow");
-                }
-                setShowFooter(true);
-            } else {
-                if (targetDiv && showFooter) {
-                    targetDiv.classList.remove("footerShow");
-                    targetDiv.classList.add("footerHide");
-                }
-                setShowFooter(false);
+                return;
             }
 
-/*             if (window.innerHeight === window.screen.height) {
-                targetDiv.classList.remove("footerShow");
-            } */
+            setShowFooter(pageHeight - scrollPosition < threshold);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        evaluateFooterVisibility();
+
+        window.addEventListener('scroll', evaluateFooterVisibility);
+        window.addEventListener('resize', evaluateFooterVisibility);
+        window.addEventListener('footer-visibility-change', evaluateFooterVisibility);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', evaluateFooterVisibility);
+            window.removeEventListener('resize', evaluateFooterVisibility);
+            window.removeEventListener('footer-visibility-change', evaluateFooterVisibility);
         };
-    }, [showFooter, scrollThreshold]);
+    }, [pathname, thresholdRatio]);
 
     return (
-        <div className='footer'>
+        <div className={`footer ${showFooter ? 'footerShow' : 'footerHide'}`}>
             <div className='credits'>
-                ©2023 Varga Szabolcs Lajos, All rights reserved!
-                
+                ©2026 Varga Szabolcs Lajos, All rights reserved!
             </div>
         </div>
     );
