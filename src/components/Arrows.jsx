@@ -1,5 +1,5 @@
 export default function Arrows() {
-  const arrows = Array.from({ length: 14 }, (_, index) => `arrow${String(index + 1).padStart(2, '0')}`);
+  const arrows = Array.from({ length: 13 }, (_, index) => `arrow${String(index + 1).padStart(2, '0')}`);
 
   return (
     <>
