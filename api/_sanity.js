@@ -16,13 +16,9 @@ function readEnv(...names) {
 
 function getSanityConfig() {
   return {
-    projectId:
-      readEnv('SANITY_PROJECT_ID', 'PROJECT_ID_PORTFOLIO', 'REACT_APP_PROJECT_ID_PORTFOLIO') ||
-      DEFAULT_PROJECT_ID,
-    dataset:
-      readEnv('SANITY_DATASET', 'DATASET_PORTFOLIO', 'REACT_APP_DATASET_PORTFOLIO') ||
-      DEFAULT_DATASET,
-    token: readEnv('SANITY_TOKEN', 'TOKEN', 'REACT_APP_TOKEN'),
+    projectId: readEnv('SANITY_PROJECT_ID', 'PROJECT_ID_PORTFOLIO') || DEFAULT_PROJECT_ID,
+    dataset: readEnv('SANITY_DATASET', 'DATASET_PORTFOLIO') || DEFAULT_DATASET,
+    token: readEnv('SANITY_TOKEN', 'TOKEN'),
     apiVersion: '2021-10-21',
     useCdn: false,
   };
@@ -33,11 +29,11 @@ function getSanityConfigError() {
   const missing = [];
 
   if (!config.projectId) {
-    missing.push('SANITY_PROJECT_ID or PROJECT_ID_PORTFOLIO or REACT_APP_PROJECT_ID_PORTFOLIO');
+    missing.push('SANITY_PROJECT_ID or PROJECT_ID_PORTFOLIO');
   }
 
   if (!config.dataset) {
-    missing.push('SANITY_DATASET or DATASET_PORTFOLIO or REACT_APP_DATASET_PORTFOLIO');
+    missing.push('SANITY_DATASET or DATASET_PORTFOLIO');
   }
 
   return missing.length > 0

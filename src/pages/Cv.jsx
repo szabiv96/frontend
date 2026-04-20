@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BackButton from '../components/BackButton';
 
-function CarefullyKept({ cvDatas }) {
+function CV({ cvDatas }) {
     const exhibitions = cvDatas[0]?.exhibitions || [];
     const educations = cvDatas[0]?.educations || [];
     const projects = cvDatas[0]?.Projects || [];
@@ -74,4 +74,4 @@ function CarefullyKept({ cvDatas }) {
     );
 }
 
-export default CarefullyKept;
+export default CV;

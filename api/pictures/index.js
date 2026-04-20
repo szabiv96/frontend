@@ -21,7 +21,7 @@ module.exports = async function handler(req, res) {
   try {
     const client = getSanityClient();
     const imageBuilder = getImageBuilder();
-    const pictures = await client.fetch('*[_type == "pictures"]');
+    const pictures = await client.fetch('*[_type == "pictures"] | order(_updatedAt desc)');
 
     res.status(200).json({
       pictures: pictures.map((picture) => serializePicture(picture, imageBuilder)),

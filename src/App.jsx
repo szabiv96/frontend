@@ -20,14 +20,10 @@ export default function App() {
   const [dataError, setDataError] = useState(null);
 
   useEffect(() => {
-    let isMounted = true;
+    const abortController = new AbortController();
 
-    fetchJson('/api/bootstrap')
+    fetchJson('/api/bootstrap', { signal: abortController.signal })
       .then((data) => {
-        if (!isMounted) {
-          return;
-        }
-
         setPosts(data.posts || []);
         setCVDatas(data.cvDatas || []);
         setPictures(data.pictures || []);
@@ -35,20 +31,20 @@ export default function App() {
         setDataError(null);
       })
       .catch((error) => {
-        if (!isMounted) {
+        if (error.name === 'AbortError') {
           return;
         }
 
         setDataError(error.message);
       })
       .finally(() => {
-        if (isMounted) {
+        if (!abortController.signal.aborted) {
           setLoading(false);
         }
       });
 
     return () => {
-      isMounted = false;
+      abortController.abort();
     };
   }, []);
 
@@ -58,7 +54,7 @@ export default function App() {
         <div className='statusCard'>
           <h2>Unable to load portfolio data</h2>
           <p>{dataError}</p>
-          <p>For secure local development, use `vercel dev` instead of plain `npm start`.</p>
+          <p>For secure local development, use `npm run vercel-dev` instead of the plain Vite dev server.</p>
         </div>
       </div>
     );

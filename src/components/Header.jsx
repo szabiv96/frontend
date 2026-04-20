@@ -1,17 +1,24 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
-
+  const { pathname } = useLocation();
   const [show, setShow] = useState(false);
   const [animation, setAnimation] = useState(false);
 
+  useEffect(() => {
+    setShow(false);
+    setAnimation(false);
+  }, [pathname]);
+
+  const toggleMenu = () => {
+    setShow((currentValue) => !currentValue);
+    setAnimation((currentValue) => !currentValue);
+  };
+
   return (
     <>
-      <div className={animation ? "menuAnimation menuButton" : "menuButton"} onClick={() => {
-        setShow(!show);
-        setAnimation(!animation);
-      }}>
+      <div className={animation ? "menuAnimation menuButton" : "menuButton"} onClick={toggleMenu}>
         <div className='menuPart01'></div>
         <div className='menuPart02'></div>
         <div className='menuPart03'></div>
@@ -24,6 +31,5 @@ export default function Header() {
         <h4><Link to="/quit">Quit</Link></h4>
       </div>
     </>
-
-  )
+  );
 }

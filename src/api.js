@@ -1,5 +1,5 @@
-export async function fetchJson(path) {
-  const response = await fetch(path);
+export async function fetchJson(path, options = {}) {
+  const response = await fetch(path, options);
   const contentType = response.headers.get('content-type') || '';
 
   if (!response.ok) {

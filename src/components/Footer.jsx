@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function getFooterThreshold(pathname) {
@@ -21,10 +21,10 @@ function getFooterThreshold(pathname) {
     return 0.1;
 }
 
-export default function App() {
+export default function Footer() {
     const { pathname } = useLocation();
     const [showFooter, setShowFooter] = useState(false);
-    const thresholdRatio = useMemo(() => getFooterThreshold(pathname), [pathname]);
+    const thresholdRatio = getFooterThreshold(pathname);
 
     useEffect(() => {
         const evaluateFooterVisibility = () => {
@@ -66,4 +66,4 @@ export default function App() {
             </div>
         </div>
     );
-};
+}

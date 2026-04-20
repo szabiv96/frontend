@@ -1,5 +1,7 @@
 import BlogPreview from '../components/BlogPreview';
 import ImageWithLoading from '../components/ImageWithLoading';
+import { Link } from 'react-router-dom';
+import { findAuthor, formatContentDate } from '../utils/content';
 
 function Quit({ posts, authors }) {
   if (!posts || !Array.isArray(posts) || posts.length === 0) {
@@ -15,8 +17,8 @@ function Quit({ posts, authors }) {
   }
 
   const firstPost = posts[0];
-  const authorRef = firstPost.author._ref;
-  const highlightedAuthor = authors.find((author, idx) => author._id === authorRef)
+  const authorRef = firstPost.author?._ref;
+  const highlightedAuthor = findAuthor(authors, authorRef);
 
   return (
     <>
@@ -35,17 +37,9 @@ function Quit({ posts, authors }) {
           />
         </div>
         <div className='right'>
-          <h4><a href={`/quit/${firstPost._rev}`}>{firstPost.title}</a></h4>
-          <h5>{highlightedAuthor.name}</h5>
-          <h4>
-            {firstPost.publishedAt ? (
-              <>
-                {firstPost.publishedAt.slice(0, -14)}, {firstPost.publishedAt.slice(11, -8)}
-              </>
-            ) : (
-              'Publication Date Missing'
-            )}
-          </h4>
+          <h4><Link to={`/quit/${firstPost._rev}`}>{firstPost.title}</Link></h4>
+          <h5>{highlightedAuthor?.name || 'Unknown author'}</h5>
+          <h4>{formatContentDate(firstPost.publishedAt || firstPost._createdAt)}</h4>
         </div>
       </div>
       <div className='posts margin-02'>
@@ -54,7 +48,7 @@ function Quit({ posts, authors }) {
         ))}
       </div>
     </>
-  )
+  );
 }
 
 export default Quit;

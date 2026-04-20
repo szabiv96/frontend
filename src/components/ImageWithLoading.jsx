@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ImageWithLoading({ src, alt }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setIsLoading(true);
+        setIsLoading(Boolean(src));
     }, [src]);
 
     const handleImageLoad = () => {
+        setIsLoading(false);
+    };
+
+    const handleImageError = () => {
         setIsLoading(false);
     };
 
@@ -18,6 +22,7 @@ function ImageWithLoading({ src, alt }) {
                 src={src}
                 alt={alt}
                 onLoad={handleImageLoad}
+                onError={handleImageError}
                 className={isLoading ? 'hidden' : 'visible'}
             />
         </div>

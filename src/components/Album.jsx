@@ -1,8 +1,7 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 import ImageWithLoading from './ImageWithLoading';
 
-export default function Album({ details, collectionName, picture, description }) {
+export default function Album({ details, collectionName, picture }) {
   return (
     <div className='album'>
       <div className='image-container'>

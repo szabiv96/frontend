@@ -23,7 +23,7 @@ module.exports = async function handler(req, res) {
     const client = getSanityClient();
     const imageBuilder = getImageBuilder();
     const [posts, cvDatas, pictures, authors] = await Promise.all([
-      client.fetch('*[_type == "post"]'),
+      client.fetch('*[_type == "post"] | order(coalesce(publishedAt, _createdAt) desc)'),
       client.fetch('*[_type == "cv"]'),
       client.fetch('*[_type == "pictures"] | order(_updatedAt desc)'),
       client.fetch('*[_type == "author"]'),

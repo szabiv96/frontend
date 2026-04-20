@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import { useParams } from 'react-router-dom';
@@ -12,48 +12,45 @@ function SoloAlbum({ pictures }) {
   const [initialSlideIndex, setInitialSlideIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [pract, setPract] = useState(null);
+  const pictureId = pictureIdParam || '';
+  const pictureFromBootstrap = useMemo(
+    () => (Array.isArray(pictures) ? pictures.find((picture) => picture._id === pictureId) : null),
+    [pictureId, pictures]
+  );
 
   useEffect(() => {
-    let isMounted = true;
-    const pictureId = pictureIdParam || '';
-    const pictureFromBootstrap = Array.isArray(pictures)
-      ? pictures.find((picture) => picture._id === pictureId)
-      : null;
+    const abortController = new AbortController();
 
     if (pictureFromBootstrap) {
       setPract(pictureFromBootstrap);
       setLoading(false);
-      return () => {
-        isMounted = false;
-      };
+      return () => abortController.abort();
     }
 
     if (pictureId) {
-      fetchJson(`/api/pictures/${encodeURIComponent(pictureId)}`)
+      setLoading(true);
+
+      fetchJson(`/api/pictures/${encodeURIComponent(pictureId)}`, { signal: abortController.signal })
         .then((data) => {
-          if (isMounted) {
-            setPract(data || null);
-          }
+          setPract(data || null);
         })
         .catch((error) => {
-          if (isMounted) {
-            console.error('Error fetching data:', error);
+          if (error.name !== 'AbortError') {
             setPract(null);
           }
         })
         .finally(() => {
-          if (isMounted) {
+          if (!abortController.signal.aborted) {
             setLoading(false);
           }
         });
     } else {
+      setPract(null);
       setLoading(false);
     }
 
-    return () => {
-      isMounted = false;
-    };
-  }, [pictureIdParam, pictures]);
+    return () => abortController.abort();
+  }, [pictureFromBootstrap, pictureId]);
 
   const images =
     pract?.imageGallery?.map((image) => ({
@@ -69,20 +66,17 @@ function SoloAlbum({ pictures }) {
 
   const closeGallery = () => {
     setIsGalleryOpen(false);
-    document.body.style.overflow = 'auto';
   };
 
   useEffect(() => {
-    if (isGalleryOpen) {
-      document.body.classList.add('gallery-view-open');
-    } else {
-      document.body.classList.remove('gallery-view-open');
-    }
+    document.body.classList.toggle('gallery-view-open', isGalleryOpen);
+    document.body.style.overflow = isGalleryOpen ? 'hidden' : 'auto';
 
     window.dispatchEvent(new Event('footer-visibility-change'));
 
     return () => {
       document.body.classList.remove('gallery-view-open');
+      document.body.style.overflow = 'auto';
       window.dispatchEvent(new Event('footer-visibility-change'));
     };
   }, [isGalleryOpen]);
@@ -125,10 +119,7 @@ function SoloAlbum({ pictures }) {
                 <div
                   className='picture'
                   key={image._key || image.asset?._ref || idx}
-                  onClick={() => {
-                    openGallery(idx);
-                    document.body.style.overflow = 'hidden';
-                  }}
+                  onClick={() => openGallery(idx)}
                 >
                   <ImageWithLoading
                     src={image.url || ''}
