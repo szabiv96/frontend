@@ -1,22 +1,24 @@
-import { ReactComponent as Arrow } from '../graphic/arrow.svg'
-
 export default function Arrows() {
-    return (
-        <>
-            <Arrow className="arrow01" />
-            <Arrow className="arrow02" />
-            <Arrow className="arrow03" />
-            <Arrow className="arrow04" />
-            <Arrow className="arrow05" />
-            <Arrow className="arrow06" />
-            <Arrow className="arrow07" />
-            <Arrow className="arrow08" />
-            <Arrow className="arrow09" />
-            <Arrow className="arrow10" />
-            <Arrow className="arrow11" />
-            <Arrow className="arrow12" />
-            <Arrow className="arrow13" />
-            <Arrow className="arrow14" />
-        </>
-    )
+  const arrows = Array.from({ length: 14 }, (_, index) => `arrow${String(index + 1).padStart(2, '0')}`);
+
+  return (
+    <>
+      {arrows.map((className) => (
+        <svg
+          key={className}
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1299.08 1976.83"
+          fill="none"
+        >
+          <polygon
+            points="639.54 .24 547.61 1595.36 3.54 730.18 651.54 1968.24 1295.54 750.24 736.65 1593.39 639.54 .24"
+            stroke="currentColor"
+            strokeMiterlimit="10"
+            strokeWidth="8"
+          />
+        </svg>
+      ))}
+    </>
+  );
 }
