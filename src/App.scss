@@ -22,7 +22,7 @@ a {
         opacity: 0;
     }
 
-    100% {
+    30% {
         opacity: 1;
     }
 }
@@ -46,8 +46,80 @@ a {
         opacity: 1;
     }
 
-    100% {
+    40% {
         opacity: 0;
+    }
+}
+
+.statusScreen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    filter: contrast(300%) brightness(500%);
+    background:
+        radial-gradient(circle, rgba(255, 94, 0, 0.62), rgba(255, 255, 255, 0)),
+        url("./graphic/noise.svg");
+    background-size: 50%, 500px 500px;
+    background-repeat: repeat;
+    background-blend-mode: multiply;
+}
+
+.statusCard {
+    width: min(100%, 560px);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.9rem;
+    padding: 3rem 2.5rem;
+
+    h2 {
+        margin: 0;
+        font-family: 'Bungee', cursive;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        line-height: 1.1;
+        color: rgb(14, 14, 14);
+        letter-spacing: 0.04em;
+    }
+
+    p {
+        margin: 0;
+        max-width: 34ch;
+        font-family: 'Azeret Mono', monospace;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: rgba(14, 14, 14, 0.82);
+    }
+}
+
+.statusCardLoading {
+    padding-top: 2.7rem;
+}
+
+.statusSpinner {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    border: 4px solid rgba(14, 14, 14, 0.12);
+    border-top-color: rgba(0, 0, 0, 0.413);
+    border-right-color: rgb(0, 0, 0);
+    animation: statusSpinnerSpin 0.9s linear infinite;
+    box-shadow: 0 0 8px rgb(255, 255, 255);
+}
+
+@keyframes statusSpinnerSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -1359,12 +1431,21 @@ a {
 
     .albumContainer {
         padding: 2%;
-        height: 75vh;
+        height: auto;
         position: absolute;
-        overflow: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap !important;
+        align-items: flex-start;
+        gap: 4vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
 
         .album {
-            width: 48% !important;
+            flex: 0 0 70vw;
+            width: 70vw !important;
+            height: 42vh;
 
             .image-container {
                 img {

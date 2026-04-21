@@ -84,7 +84,8 @@ function SoloAlbum({ pictures }) {
   if (loading) {
     return (
       <div className='statusScreen'>
-        <div className='statusCard'>
+        <div className='statusCard statusCardLoading'>
+          <div className='statusSpinner' aria-hidden='true'></div>
           <h2>Loading album</h2>
           <p>Fetching artwork collection details.</p>
         </div>

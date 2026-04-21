@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import CV from './pages/Cv';
 import { fetchJson } from './api';
 
+const FORCE_LOADING_SCREEN = false;
+
 export default function App() {
   const [cvDatas, setCVDatas] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -60,12 +62,13 @@ export default function App() {
     );
   }
 
-  if (loading) {
+  if (loading || FORCE_LOADING_SCREEN) {
     return (
       <div className='statusScreen'>
-        <div className='statusCard'>
+        <div className='statusCard statusCardLoading'>
+          <div className='statusSpinner' aria-hidden='true'></div>
           <h2>Loading portfolio</h2>
-          <p>Fetching data from the server-side Sanity API.</p>
+          <p>It should take only less then a second. :- )</p>
         </div>
       </div>
     );
