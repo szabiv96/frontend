@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ImageWithLoading from './ImageWithLoading';
+import { buildArtworkAltText } from '../utils/seo';
 
 export default function Album({ details, collectionName, picture }) {
   return (
@@ -13,7 +14,7 @@ export default function Album({ details, collectionName, picture }) {
           </div>
           <ImageWithLoading
             src={picture || ''}
-            alt=""
+            alt={buildArtworkAltText(details, `${collectionName} collection cover`)}
           />
         </Link>
       </div>

@@ -6,6 +6,9 @@ export default defineConfig({
   build: {
     outDir: 'build',
   },
+  ssr: {
+    noExternal: true,
+  },
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.js',

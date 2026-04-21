@@ -5,11 +5,11 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   {
-    ignores: ['build/**', '.vercel/**', 'node_modules/**'],
+    ignores: ['build/**', 'build-ssr/**', '.vercel/**', 'node_modules/**'],
   },
   js.configs.recommended,
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs}'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

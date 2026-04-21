@@ -14,7 +14,7 @@ export default function News({ posts, authors }) {
         </div>; // Render a loading message or alternative content
     }
 
-    const highlightedPosts = posts.slice(1, 4);
+    const highlightedPosts = posts.slice(0, 3);
 
     return (
         <div className='news'>

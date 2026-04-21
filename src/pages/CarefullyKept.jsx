@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import Album from '../components/Album';
+import Seo from '../components/Seo';
+import { truncateText } from '../utils/seo';
 
 function CarefullyKept({ pictures }) {
   const sortedPictures = useMemo(() => {
@@ -32,6 +34,29 @@ function CarefullyKept({ pictures }) {
 
   return (
     <>
+      <Seo
+        title='Gallery'
+        description={truncateText(
+          'Carefully kept artworks, collections, and visual projects by Varga Szabolcs Lajos.',
+          160
+        )}
+        image={sortedPictures[0]?.coverImageUrl}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Carefully kept artworks',
+          description: 'Artwork collections and visual projects by Varga Szabolcs Lajos.',
+          mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: sortedPictures.map((picture, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: picture.collectionName,
+              url: `/gallery/${picture._id}`,
+            })),
+          },
+        }}
+      />
       <div className='background01'></div>
       <div className='aboutCollections'>
         <h1>Carefully kept...</h1>

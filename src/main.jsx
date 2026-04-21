@@ -5,12 +5,18 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(
+const rootElement = document.getElementById('root');
+const initialData = window.__INITIAL_DATA__ || null;
+const app = (
   <React.StrictMode>
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <App />
+      <App initialData={initialData} shouldBootstrapOnMount />
     </BrowserRouter>
   </React.StrictMode>
 );
+
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}

@@ -2,24 +2,56 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BackButton from '../components/BackButton';
+import Seo from '../components/Seo';
 
 function CV({ cvDatas }) {
-    const exhibitions = cvDatas[0]?.exhibitions || [];
-    const educations = cvDatas[0]?.educations || [];
-    const projects = cvDatas[0]?.Projects || [];
-
     if (!cvDatas || !Array.isArray(cvDatas) || cvDatas.length === 0) {
         return <div className='loading'>
             <p>Loading ... </p>
         </div> // Render a loading message or alternative content
     }
 
+    const cvData = cvDatas[0] || {};
+    const exhibitions = cvData.exhibitions || [];
+    const educations = cvData.educations || [];
+    const projects = cvData.Projects || cvData.projects || [];
+    const primaryInstitution = educations[0]?.inst;
+    const cvDescription = primaryInstitution
+        ? `CV of Varga Szabolcs Lajos featuring exhibitions, education history, and projects, including studies at ${primaryInstitution}.`
+        : 'CV of Varga Szabolcs Lajos featuring exhibitions, education history, and projects.';
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Varga Szabolcs Lajos',
+        jobTitle: 'Artist',
+        url: typeof window !== 'undefined' ? window.location.href : undefined,
+        alumniOf: educations
+            .filter((education) => education?.inst)
+            .map((education) => ({
+                '@type': 'CollegeOrUniversity',
+                name: education.inst,
+                department: education.department || undefined,
+            })),
+    };
 
     return (
         <>
+            <Seo
+                title='CV, Education and Exhibitions'
+                description={cvDescription}
+                structuredData={structuredData}
+            />
             <BackButton />
             <div className='background01'></div>
             <div className='exhibitions exhibModifier'>
+                <div className='exhibition'>
+                    <h1>Curriculum Vitae</h1>
+                    <p>
+                        Varga Szabolcs Lajos is a visual artist working across painting, writing, and
+                        independent projects. This CV page collects exhibition history, education
+                        background, and selected projects in one place.
+                    </p>
+                </div>
                 <div className='exhibition'>
                     <h1>Exhibitions</h1>
                     {Array.isArray(exhibitions) ? (

@@ -54,6 +54,24 @@ function getSanityClient() {
   });
 }
 
+function normalizeSiteUrl(siteUrl) {
+  if (!siteUrl) {
+    return '';
+  }
+
+  const normalizedWithProtocol = /^https?:\/\//i.test(siteUrl) ? siteUrl : `https://${siteUrl}`;
+
+  if (normalizedWithProtocol.endsWith('/')) {
+    return normalizedWithProtocol.slice(0, -1);
+  }
+
+  return normalizedWithProtocol;
+}
+
+function getSiteUrl() {
+  return normalizeSiteUrl(readEnv('SITE_URL', 'VITE_SITE_URL', 'VERCEL_PROJECT_PRODUCTION_URL'));
+}
+
 function getImageBuilder() {
   const config = getSanityConfig();
 
@@ -116,6 +134,7 @@ module.exports = {
   getSanityClient,
   getSanityConfigError,
   getImageBuilder,
+  getSiteUrl,
   serializePicture,
   serializePost,
 };

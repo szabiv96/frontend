@@ -13,15 +13,30 @@ import { fetchJson } from './api';
 
 const FORCE_LOADING_SCREEN = false;
 
-export default function App() {
-  const [cvDatas, setCVDatas] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [pictures, setPictures] = useState([]);
-  const [authors, setAuthors] = useState([]);
+function normalizeInitialData(initialData) {
+  return {
+    cvDatas: initialData?.cvDatas || [],
+    posts: initialData?.posts || [],
+    pictures: initialData?.pictures || [],
+    authors: initialData?.authors || [],
+  };
+}
+
+export default function App({ initialData = null, shouldBootstrapOnMount = true }) {
+  const normalizedInitialData = normalizeInitialData(initialData);
+  const hasInitialData = initialData !== null;
+  const [cvDatas, setCVDatas] = useState(normalizedInitialData.cvDatas);
+  const [posts, setPosts] = useState(normalizedInitialData.posts);
+  const [loading, setLoading] = useState(!hasInitialData);
+  const [pictures, setPictures] = useState(normalizedInitialData.pictures);
+  const [authors, setAuthors] = useState(normalizedInitialData.authors);
   const [dataError, setDataError] = useState(null);
 
   useEffect(() => {
+    if (!shouldBootstrapOnMount) {
+      return undefined;
+    }
+
     const abortController = new AbortController();
 
     fetchJson('/api/bootstrap', { signal: abortController.signal })
@@ -37,10 +52,12 @@ export default function App() {
           return;
         }
 
-        setDataError(error.message);
+        if (!hasInitialData) {
+          setDataError(error.message);
+        }
       })
       .finally(() => {
-        if (!abortController.signal.aborted) {
+        if (!abortController.signal.aborted && !hasInitialData) {
           setLoading(false);
         }
       });
@@ -48,7 +65,7 @@ export default function App() {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [hasInitialData, shouldBootstrapOnMount]);
 
   if (dataError) {
     return (

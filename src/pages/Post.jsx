@@ -1,6 +1,8 @@
 import { PortableText } from '@portabletext/react';
 import BackButton from '../components/BackButton';
 import { findAuthor, formatContentDate } from '../utils/content';
+import Seo from '../components/Seo';
+import { portableTextToPlainText, truncateText } from '../utils/seo';
 
 export default function Post({ post, authors }) {
   if (!post.body || post.body.length === 0) {
@@ -8,10 +10,11 @@ export default function Post({ post, authors }) {
   }
 
   const author = findAuthor(authors, post.author?._ref);
+  const description = truncateText(portableTextToPlainText(post.body), 160);
 
   const myPortableTextComponents = {
     types: {
-      image: ({ value }) => <img src={value.imageUrl || ''} alt="" />,
+      image: ({ value }) => <img src={value.imageUrl || ''} alt={value.alt || post.title} />,
       callToAction: ({ value, isInline }) =>
         isInline ? (
           <a href={value.url}>{value.text}</a>
@@ -23,6 +26,25 @@ export default function Post({ post, authors }) {
 
   return (
     <>
+      <Seo
+        title={post.title}
+        description={description}
+        image={post.mainImageUrl}
+        type='article'
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description,
+          image: post.mainImageUrl,
+          datePublished: post.publishedAt || post._createdAt,
+          dateModified: post._updatedAt || post.publishedAt || post._createdAt,
+          author: {
+            '@type': 'Person',
+            name: author?.name || 'Varga Szabolcs Lajos',
+          },
+        }}
+      />
       <div className='background02'></div>
       <BackButton />
       <div className='post margin-02'>

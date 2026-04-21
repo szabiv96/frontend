@@ -5,11 +5,14 @@ import { useParams } from 'react-router-dom';
 import ImageWithLoading from '../components/ImageWithLoading';
 import BackButton from '../components/BackButton';
 import { fetchJson } from '../api';
+import Seo from '../components/Seo';
+import { buildArtworkAltText, truncateText } from '../utils/seo';
 
 function SoloAlbum({ pictures }) {
   const { pictureId: pictureIdParam } = useParams();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [initialSlideIndex, setInitialSlideIndex] = useState(0);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [pract, setPract] = useState(null);
   const pictureId = pictureIdParam || '';
@@ -57,11 +60,24 @@ function SoloAlbum({ pictures }) {
       original: image.url || '',
       thumbnail: image.thumbnailUrl || image.url || '',
       description: image.caption || '',
+      title: image.title || '',
+      year: image.year || '',
+      media: image.eng_media || image.media || '',
+      size: image.size || '',
     })) || [];
+
+  const activeArtwork = images[activeSlideIndex] || null;
+  const activeArtworkDetails = [
+    activeArtwork?.title,
+    activeArtwork?.year,
+    activeArtwork?.media,
+    activeArtwork?.size,
+  ].filter(Boolean);
 
   const openGallery = (index) => {
     setIsGalleryOpen(true);
     setInitialSlideIndex(index);
+    setActiveSlideIndex(index);
   };
 
   const closeGallery = () => {
@@ -106,6 +122,31 @@ function SoloAlbum({ pictures }) {
 
   return (
     <>
+      <Seo
+        title={pract?.collectionName || 'Gallery'}
+        description={truncateText(pract?.description || 'Artwork collection by Varga Szabolcs Lajos.', 160)}
+        image={pract?.coverImageUrl || images[0]?.original}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: pract?.collectionName || 'Artwork collection',
+          description: pract?.description || 'Artwork collection by Varga Szabolcs Lajos.',
+          mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: images.map((image, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              item: {
+                '@type': 'VisualArtwork',
+                name: image.title || pract?.collectionName || `Artwork ${index + 1}`,
+                image: image.original,
+                artMedium: image.media || undefined,
+                dateCreated: image.year || undefined,
+              },
+            })),
+          },
+        }}
+      />
       <div className='background01 variant'></div>
       <BackButton />
       <div className='soloAlbumContainer'>
@@ -124,7 +165,7 @@ function SoloAlbum({ pictures }) {
                 >
                   <ImageWithLoading
                     src={image.url || ''}
-                    alt=""
+                    alt={buildArtworkAltText(image, pract?.collectionName || 'Artwork image')}
                   />
                 </div>
               );
@@ -145,7 +186,13 @@ function SoloAlbum({ pictures }) {
                 startIndex={initialSlideIndex}
                 showPlayButton={false}
                 showFullscreenButton={false}
+                onSlide={setActiveSlideIndex}
               />
+              {activeArtworkDetails.length > 0 && (
+                <div className='galleryArtworkDetails'>
+                  <p>{activeArtworkDetails.join(', ')}</p>
+                </div>
+              )}
             </>
           )}
         </div>

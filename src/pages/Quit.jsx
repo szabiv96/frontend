@@ -1,9 +1,25 @@
+import { useMemo } from 'react';
 import BlogPreview from '../components/BlogPreview';
 import ImageWithLoading from '../components/ImageWithLoading';
 import { Link } from 'react-router-dom';
 import { findAuthor, formatContentDate } from '../utils/content';
+import Seo from '../components/Seo';
+import { truncateText } from '../utils/seo';
 
 function Quit({ posts, authors }) {
+  const sortedPosts = useMemo(() => {
+    if (!Array.isArray(posts)) {
+      return [];
+    }
+
+    return [...posts].sort((leftPost, rightPost) => {
+      const leftDate = new Date(leftPost?.publishedAt || leftPost?._createdAt || 0).getTime();
+      const rightDate = new Date(rightPost?.publishedAt || rightPost?._createdAt || 0).getTime();
+
+      return rightDate - leftDate;
+    });
+  }, [posts]);
+
   if (!posts || !Array.isArray(posts) || posts.length === 0) {
     return <div className='loading'>
       <p>EZT AZ UZENETET NEM LENNE SZABAD TUDNOD ELOLVASNOD! </p>
@@ -16,12 +32,35 @@ function Quit({ posts, authors }) {
     </div>;
   }
 
-  const firstPost = posts[0];
+  const firstPost = sortedPosts[0];
   const authorRef = firstPost.author?._ref;
   const highlightedAuthor = findAuthor(authors, authorRef);
 
   return (
     <>
+      <Seo
+        title='Quit'
+        description={truncateText(
+          'Current thoughts, essays, and art critique by Varga Szabolcs Lajos.',
+          160
+        )}
+        image={firstPost.mainImageUrl}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Quit',
+          description: 'Current thoughts, essays, and art critique by Varga Szabolcs Lajos.',
+          mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: sortedPosts.map((post, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              url: `/quit/${post._rev}`,
+              name: post.title,
+            })),
+          },
+        }}
+      />
       <div className='proposer'>
         <div className='background02'>
           <div className='landingText02 quitModif'>
@@ -33,7 +72,7 @@ function Quit({ posts, authors }) {
         <div className='left'>
           <ImageWithLoading
             src={firstPost.mainImageUrl || ''}
-            alt="kep"
+            alt={`Featured image for ${firstPost.title}`}
           />
         </div>
         <div className='right'>
@@ -43,7 +82,7 @@ function Quit({ posts, authors }) {
         </div>
       </div>
       <div className='posts margin-02'>
-        {posts.map((post, idx) => (
+        {sortedPosts.map((post, idx) => (
           <BlogPreview key={post._id || post._rev || idx} post={post} authors={authors} />
         ))}
       </div>
