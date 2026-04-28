@@ -66,11 +66,12 @@
     </div>
     <script>
       var buildUrl = "/unity/gallery-d0428/Build";
-      var loaderUrl = buildUrl + "/galleryD0428.loader.js";
+      var buildVersion = "2026-04-28-02";
+      var loaderUrl = buildUrl + "/galleryD0428.loader.js?v=" + buildVersion;
       var config = {
-        dataUrl: buildUrl + "/galleryD0428.data.unityweb",
-        frameworkUrl: buildUrl + "/galleryD0428.framework.js.unityweb",
-        codeUrl: buildUrl + "/galleryD0428.wasm.unityweb",
+        dataUrl: buildUrl + "/galleryD0428.data.unityweb?v=" + buildVersion,
+        frameworkUrl: buildUrl + "/galleryD0428.framework.js.unityweb?v=" + buildVersion,
+        codeUrl: buildUrl + "/galleryD0428.wasm.unityweb?v=" + buildVersion,
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Gallery D0428",
