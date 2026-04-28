@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery D0428</title>
+    <link rel="shortcut icon" href="/unity/gallery-d0428/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="/unity/gallery-d0428/TemplateData/style.css">
+    <style>
+      body {
+        margin: 0;
+        background: #111;
+      }
+
+      #portfolio-back-button {
+        position: fixed;
+        top: 1rem;
+        left: -1%;
+        z-index: 40;
+        min-width: 8rem;
+        padding: 0.35rem 1rem 0.55rem;
+        border: 1px solid rgb(14, 14, 14);
+        border-top-right-radius: 100px;
+        background: rgba(255, 255, 255, 0.94);
+        color: rgb(14, 14, 14);
+        font-family: 'Azeret Mono', monospace;
+        font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+        text-align: center;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+
+      #portfolio-back-button:hover {
+        background: rgb(128, 255, 0);
+      }
+
+      @media only screen and (max-width: 550px) {
+        #portfolio-back-button {
+          left: 0;
+          top: 0.75rem;
+          min-width: 6.5rem;
+          border-top-right-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a id="portfolio-back-button" href="/">Prev</a>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width="960" height="600"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-mobile-warning">
+        WebGL builds are not supported on mobile devices.
+      </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Gallery D0428</div>
+      </div>
+    </div>
+    <script>
+      var buildUrl = "/unity/gallery-d0428/Build";
+      var loaderUrl = buildUrl + "/galleryD0428.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/galleryD0428.data.unityweb",
+        frameworkUrl: buildUrl + "/galleryD0428.framework.js.unityweb",
+        codeUrl: buildUrl + "/galleryD0428.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Gallery D0428",
+        productVersion: "0.1",
+      };
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var mobileWarning = document.querySelector("#unity-mobile-warning");
+      var backButton = document.querySelector("#portfolio-back-button");
+
+      backButton.addEventListener("click", (event) => {
+        if (window.history.length > 1) {
+          event.preventDefault();
+          window.history.back();
+        }
+      });
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        config.devicePixelRatio = 1;
+        mobileWarning.style.display = "block";
+        setTimeout(() => {
+          mobileWarning.style.display = "none";
+        }, 5000);
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

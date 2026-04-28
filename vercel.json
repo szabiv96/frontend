@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/projects/gallery-d0428",
+      "destination": "/unity/gallery-d0428/index.html"
+    },
+    {
+      "source": "/projects/gallery-d0428/",
+      "destination": "/unity/gallery-d0428/index.html"
+    },
+    {
       "source": "/(.*)",
       "has": [
         {

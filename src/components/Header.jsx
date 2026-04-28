@@ -29,6 +29,8 @@ export default function Header() {
         <h4><Link to="/gallery">CarefullyKept</Link></h4>
         <h4>:</h4>
         <h4><Link to="/quit">Quit</Link></h4>
+        <h4>:</h4>
+        <h4><a href="/projects/gallery-d0428">Game</a></h4>
       </div>
     </>
   );

@@ -12,6 +12,9 @@
 
 # production
 /build
+/build-ssr/unity
+/build-ssr/favicon.svg
+/galleryD0428
 
 # misc
 .DS_Store
