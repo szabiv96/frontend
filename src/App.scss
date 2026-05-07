@@ -586,23 +586,6 @@ a {
             border-top-left-radius: 25%;
             position: relative;
 
-            .loading-animation {
-                background: #ccc;
-                /* Background color for the loading animation */
-                /* Add your loading animation styles here */
-            }
-
-            .hidden {
-                opacity: 0;
-                transition: opacity 1.5s ease;
-                /* Adjust the duration and easing as needed */
-            }
-
-            .visible {
-                opacity: 1;
-                transition: opacity 1.5s ease;
-            }
-
             .decor {
                 display: flex;
                 flex-direction: column;
@@ -715,24 +698,6 @@ a {
             width: 20%;
             height: 30vh;
             overflow: hidden;
-
-
-            .loading-animation {
-                background: #ccc;
-                /* Background color for the loading animation */
-                /* Add your loading animation styles here */
-            }
-
-            .hidden {
-                opacity: 0;
-                transition: opacity 1.5s ease;
-                /* Adjust the duration and easing as needed */
-            }
-
-            .visible {
-                opacity: 1;
-                transition: opacity 1.5s ease;
-            }
 
             img {
                 height: 60vh;
