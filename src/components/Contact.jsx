@@ -41,7 +41,7 @@ export default function App() {
   return (
     <div className='contact'>
       <h2 className={`email ${showContacts ? 'fadeIn' : ''}`}>email: szabi.v96@gmail.com</h2>
-      <h2 className={`email ${showContacts ? 'fadeIn' : ''}`}>behance: szabolcsvarga96</h2>
+      <h2 className={`email ${showContacts ? 'fadeIn' : ''}`}>behance: szabolcvarga96</h2>
       <h2 className={`email ${showContacts ? 'fadeIn' : ''}`}>insta: @szabolcs.lajos</h2>
     </div>
   );

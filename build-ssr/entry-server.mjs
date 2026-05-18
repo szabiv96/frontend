@@ -46916,7 +46916,9 @@ function Header() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: ":" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/gallery", children: "CarefullyKept" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: ":" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quit", children: "Quit" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quit", children: "Quit" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: ":" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/projects/gallery-d0428", children: "Game" }) })
     ] })
   ] });
 }
@@ -49380,29 +49382,7 @@ function Home({
   ] });
 }
 function ImageWithLoading({ src, alt }) {
-  const [isLoading, setIsLoading] = reactExports.useState(true);
-  reactExports.useEffect(() => {
-    setIsLoading(Boolean(src));
-  }, [src]);
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
-  const handleImageError = () => {
-    setIsLoading(false);
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `image-container ${isLoading ? "loading" : ""}`, children: [
-    isLoading && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "loading-animation" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "img",
-      {
-        src,
-        alt,
-        onLoad: handleImageLoad,
-        onError: handleImageError,
-        className: isLoading ? "hidden" : "visible"
-      }
-    )
-  ] });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "image-container", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src, alt }) });
 }
 function Album({ details, collectionName, picture }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "album", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "image-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: `/gallery/${details._id}`, children: [
@@ -51484,6 +51464,30 @@ function Post({ post, authors }) {
     ] })
   ] });
 }
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/szabolcs.lajos/",
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "3", y: "3", width: "18", height: "18", rx: "5" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "12", cy: "12", r: "4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "17.5", cy: "6.5", r: "1.4" })
+    ] })
+  },
+  {
+    name: "Behance",
+    href: "https://www.behance.net/szabolcsvarga96",
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4 6h6.3c2.4 0 3.9 1.2 3.9 3.1 0 1.1-.5 2-1.5 2.5 1.3.5 2 1.5 2 3 0 2.2-1.7 3.4-4.3 3.4H4V6zm5.8 4.7c1 0 1.6-.4 1.6-1.2s-.6-1.2-1.6-1.2H6.9v2.4h2.9zm.3 5c1.2 0 1.8-.5 1.8-1.4s-.7-1.4-1.9-1.4H6.9v2.8h3.2z" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M15.8 7h5.1v1.5h-5.1V7zm2.8 3.1c2.5 0 4.1 1.8 4.1 4.4 0 .3 0 .6-.1.8h-5.8c.2 1 1 1.6 2.1 1.6.8 0 1.4-.3 1.9-.9l1.5 1.5c-.8 1-2 1.6-3.5 1.6-2.7 0-4.4-1.8-4.4-4.5s1.7-4.5 4.2-4.5zm1.7 3.6c-.1-1-.7-1.6-1.7-1.6-.9 0-1.6.6-1.8 1.6h3.5z" })
+    ] })
+  },
+  {
+    name: "Substack",
+    href: "#",
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M5 4h14v2.6H5V4zm0 4.6h14v2.6H5V8.6zm0 4.6h14V21l-7-3.9L5 21v-7.8z" }) })
+  }
+];
 function getFooterThreshold(pathname) {
   if (pathname === "/") {
     return 0.1;
@@ -51529,7 +51533,21 @@ function Footer() {
       window.removeEventListener("footer-visibility-change", evaluateFooterVisibility);
     };
   }, [pathname, thresholdRatio]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `footer ${showFooter ? "footerShow" : "footerHide"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "credits", children: "©2026 Varga Szabolcs Lajos, All rights reserved!" }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `footer ${showFooter ? "footerShow" : "footerHide"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "credits", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "socialLinks", "aria-label": "Social links", children: socialLinks.map((link2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "a",
+      {
+        href: link2.href,
+        target: "_blank",
+        rel: "noreferrer",
+        "aria-label": link2.name,
+        className: "socialLink",
+        children: link2.icon
+      },
+      link2.name
+    )) }),
+    "©2026 Varga Szabolcs Lajos, All rights reserved!"
+  ] }) });
 }
 function CV({ cvDatas }) {
   if (!cvDatas || !Array.isArray(cvDatas) || cvDatas.length === 0) {
