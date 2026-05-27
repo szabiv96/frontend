@@ -1238,10 +1238,10 @@ function requireReact_development() {
               get: function() {
                 return ownName;
               },
-              set: function(name) {
-                ownName = name;
+              set: function(name2) {
+                ownName = name2;
                 if (!render2.name && !render2.displayName) {
-                  render2.displayName = name;
+                  render2.displayName = name2;
                 }
               }
             });
@@ -1289,10 +1289,10 @@ function requireReact_development() {
               get: function() {
                 return ownName;
               },
-              set: function(name) {
-                ownName = name;
+              set: function(name2) {
+                ownName = name2;
                 if (!type.name && !type.displayName) {
-                  type.displayName = name;
+                  type.displayName = name2;
                 }
               }
             });
@@ -1460,7 +1460,7 @@ function requireReact_development() {
         }
         var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher;
         var prefix;
-        function describeBuiltInComponentFrame(name, source, ownerFn) {
+        function describeBuiltInComponentFrame(name2, source, ownerFn) {
           {
             if (prefix === void 0) {
               try {
@@ -1470,7 +1470,7 @@ function requireReact_development() {
                 prefix = match && match[1] || "";
               }
             }
-            return "\n" + prefix + name;
+            return "\n" + prefix + name2;
           }
         }
         var reentry = false;
@@ -1573,8 +1573,8 @@ function requireReact_development() {
             }
             Error.prepareStackTrace = previousPrepareStackTrace;
           }
-          var name = fn ? fn.displayName || fn.name : "";
-          var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+          var name2 = fn ? fn.displayName || fn.name : "";
+          var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
           {
             if (typeof fn === "function") {
               componentFrameCache.set(fn, syntheticFrame);
@@ -1689,9 +1689,9 @@ function requireReact_development() {
         }
         function getDeclarationErrorAddendum() {
           if (ReactCurrentOwner.current) {
-            var name = getComponentNameFromType(ReactCurrentOwner.current.type);
-            if (name) {
-              return "\n\nCheck the render method of `" + name + "`.";
+            var name2 = getComponentNameFromType(ReactCurrentOwner.current.type);
+            if (name2) {
+              return "\n\nCheck the render method of `" + name2 + "`.";
             }
           }
           return "";
@@ -1788,8 +1788,8 @@ function requireReact_development() {
               return;
             }
             if (propTypes2) {
-              var name = getComponentNameFromType(type);
-              checkPropTypes(propTypes2, element.props, "prop", name, element);
+              var name2 = getComponentNameFromType(type);
+              checkPropTypes(propTypes2, element.props, "prop", name2, element);
             } else if (type.PropTypes !== void 0 && !propTypesMisspellWarningShown) {
               propTypesMisspellWarningShown = true;
               var _name = getComponentNameFromType(type);
@@ -2404,7 +2404,7 @@ function requireReactJsxRuntime_development() {
       }
       var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
       var prefix;
-      function describeBuiltInComponentFrame(name, source, ownerFn) {
+      function describeBuiltInComponentFrame(name2, source, ownerFn) {
         {
           if (prefix === void 0) {
             try {
@@ -2414,7 +2414,7 @@ function requireReactJsxRuntime_development() {
               prefix = match && match[1] || "";
             }
           }
-          return "\n" + prefix + name;
+          return "\n" + prefix + name2;
         }
       }
       var reentry = false;
@@ -2517,8 +2517,8 @@ function requireReactJsxRuntime_development() {
           }
           Error.prepareStackTrace = previousPrepareStackTrace;
         }
-        var name = fn ? fn.displayName || fn.name : "";
-        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+        var name2 = fn ? fn.displayName || fn.name : "";
+        var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
         {
           if (typeof fn === "function") {
             componentFrameCache.set(fn, syntheticFrame);
@@ -2826,9 +2826,9 @@ function requireReactJsxRuntime_development() {
       function getDeclarationErrorAddendum() {
         {
           if (ReactCurrentOwner$1.current) {
-            var name = getComponentNameFromType(ReactCurrentOwner$1.current.type);
-            if (name) {
-              return "\n\nCheck the render method of `" + name + "`.";
+            var name2 = getComponentNameFromType(ReactCurrentOwner$1.current.type);
+            if (name2) {
+              return "\n\nCheck the render method of `" + name2 + "`.";
             }
           }
           return "";
@@ -2921,8 +2921,8 @@ function requireReactJsxRuntime_development() {
             return;
           }
           if (propTypes2) {
-            var name = getComponentNameFromType(type);
-            checkPropTypes(propTypes2, element.props, "prop", name, element);
+            var name2 = getComponentNameFromType(type);
+            checkPropTypes(propTypes2, element.props, "prop", name2, element);
           } else if (type.PropTypes !== void 0 && !propTypesMisspellWarningShown) {
             propTypesMisspellWarningShown = true;
             var _name = getComponentNameFromType(type);
@@ -6302,7 +6302,7 @@ function requireReactDomServerLegacy_node_development() {
         }
         return false;
       }
-      function shouldRemoveAttributeWithWarning(name, value, propertyInfo, isCustomComponentTag) {
+      function shouldRemoveAttributeWithWarning(name2, value, propertyInfo, isCustomComponentTag) {
         if (propertyInfo !== null && propertyInfo.type === RESERVED) {
           return false;
         }
@@ -6315,7 +6315,7 @@ function requireReactDomServerLegacy_node_development() {
             if (propertyInfo !== null) {
               return !propertyInfo.acceptsBooleans;
             } else {
-              var prefix2 = name.toLowerCase().slice(0, 5);
+              var prefix2 = name2.toLowerCase().slice(0, 5);
               return prefix2 !== "data-" && prefix2 !== "aria-";
             }
           }
@@ -6323,15 +6323,15 @@ function requireReactDomServerLegacy_node_development() {
             return false;
         }
       }
-      function getPropertyInfo(name) {
-        return properties.hasOwnProperty(name) ? properties[name] : null;
+      function getPropertyInfo(name2) {
+        return properties.hasOwnProperty(name2) ? properties[name2] : null;
       }
-      function PropertyInfoRecord(name, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
+      function PropertyInfoRecord(name2, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
         this.acceptsBooleans = type === BOOLEANISH_STRING || type === BOOLEAN || type === OVERLOADED_BOOLEAN;
         this.attributeName = attributeName;
         this.attributeNamespace = attributeNamespace;
         this.mustUseProperty = mustUseProperty;
-        this.propertyName = name;
+        this.propertyName = name2;
         this.type = type;
         this.sanitizeURL = sanitizeURL2;
         this.removeEmptyString = removeEmptyString;
@@ -6350,13 +6350,13 @@ function requireReactDomServerLegacy_node_development() {
         "suppressHydrationWarning",
         "style"
       ];
-      reservedProps.forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      reservedProps.forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           RESERVED,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -6366,9 +6366,9 @@ function requireReactDomServerLegacy_node_development() {
         );
       });
       [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function(_ref) {
-        var name = _ref[0], attributeName = _ref[1];
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = _ref[0], attributeName = _ref[1];
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -6381,13 +6381,13 @@ function requireReactDomServerLegacy_node_development() {
           false
         );
       });
-      ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEANISH_STRING,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -6396,13 +6396,13 @@ function requireReactDomServerLegacy_node_development() {
           false
         );
       });
-      ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEANISH_STRING,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -6438,13 +6438,13 @@ function requireReactDomServerLegacy_node_development() {
         "seamless",
         // Microdata
         "itemScope"
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEAN,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -6463,13 +6463,13 @@ function requireReactDomServerLegacy_node_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEAN,
           true,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -6484,13 +6484,13 @@ function requireReactDomServerLegacy_node_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           OVERLOADED_BOOLEAN,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -6507,13 +6507,13 @@ function requireReactDomServerLegacy_node_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           POSITIVE_NUMERIC,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -6522,13 +6522,13 @@ function requireReactDomServerLegacy_node_development() {
           false
         );
       });
-      ["rowSpan", "start"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["rowSpan", "start"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           NUMERIC,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -6619,9 +6619,9 @@ function requireReactDomServerLegacy_node_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -6644,9 +6644,9 @@ function requireReactDomServerLegacy_node_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -6665,9 +6665,9 @@ function requireReactDomServerLegacy_node_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -6878,35 +6878,35 @@ function requireReactDomServerLegacy_node_development() {
       var warnedProperties = {};
       var rARIA = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
       var rARIACamel = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-      function validateProperty(tagName, name) {
+      function validateProperty(tagName, name2) {
         {
-          if (hasOwnProperty.call(warnedProperties, name) && warnedProperties[name]) {
+          if (hasOwnProperty.call(warnedProperties, name2) && warnedProperties[name2]) {
             return true;
           }
-          if (rARIACamel.test(name)) {
-            var ariaName = "aria-" + name.slice(4).toLowerCase();
+          if (rARIACamel.test(name2)) {
+            var ariaName = "aria-" + name2.slice(4).toLowerCase();
             var correctName = ariaProperties.hasOwnProperty(ariaName) ? ariaName : null;
             if (correctName == null) {
-              error("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name);
-              warnedProperties[name] = true;
+              error("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name2);
+              warnedProperties[name2] = true;
               return true;
             }
-            if (name !== correctName) {
-              error("Invalid ARIA attribute `%s`. Did you mean `%s`?", name, correctName);
-              warnedProperties[name] = true;
+            if (name2 !== correctName) {
+              error("Invalid ARIA attribute `%s`. Did you mean `%s`?", name2, correctName);
+              warnedProperties[name2] = true;
               return true;
             }
           }
-          if (rARIA.test(name)) {
-            var lowerCasedName = name.toLowerCase();
+          if (rARIA.test(name2)) {
+            var lowerCasedName = name2.toLowerCase();
             var standardName = ariaProperties.hasOwnProperty(lowerCasedName) ? lowerCasedName : null;
             if (standardName == null) {
-              warnedProperties[name] = true;
+              warnedProperties[name2] = true;
               return false;
             }
-            if (name !== standardName) {
-              error("Unknown ARIA attribute `%s`. Did you mean `%s`?", name, standardName);
-              warnedProperties[name] = true;
+            if (name2 !== standardName) {
+              error("Unknown ARIA attribute `%s`. Did you mean `%s`?", name2, standardName);
+              warnedProperties[name2] = true;
               return true;
             }
           }
@@ -7451,95 +7451,95 @@ function requireReactDomServerLegacy_node_development() {
         var INVALID_EVENT_NAME_REGEX = /^on[^A-Z]/;
         var rARIA$1 = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
         var rARIACamel$1 = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-        validateProperty$1 = function(tagName, name, value, eventRegistry) {
-          if (hasOwnProperty.call(warnedProperties$1, name) && warnedProperties$1[name]) {
+        validateProperty$1 = function(tagName, name2, value, eventRegistry) {
+          if (hasOwnProperty.call(warnedProperties$1, name2) && warnedProperties$1[name2]) {
             return true;
           }
-          var lowerCasedName = name.toLowerCase();
+          var lowerCasedName = name2.toLowerCase();
           if (lowerCasedName === "onfocusin" || lowerCasedName === "onfocusout") {
             error("React uses onFocus and onBlur instead of onFocusIn and onFocusOut. All React events are normalized to bubble, so onFocusIn and onFocusOut are not needed/supported by React.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (eventRegistry != null) {
             var registrationNameDependencies = eventRegistry.registrationNameDependencies, possibleRegistrationNames = eventRegistry.possibleRegistrationNames;
-            if (registrationNameDependencies.hasOwnProperty(name)) {
+            if (registrationNameDependencies.hasOwnProperty(name2)) {
               return true;
             }
             var registrationName = possibleRegistrationNames.hasOwnProperty(lowerCasedName) ? possibleRegistrationNames[lowerCasedName] : null;
             if (registrationName != null) {
-              error("Invalid event handler property `%s`. Did you mean `%s`?", name, registrationName);
-              warnedProperties$1[name] = true;
+              error("Invalid event handler property `%s`. Did you mean `%s`?", name2, registrationName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-            if (EVENT_NAME_REGEX.test(name)) {
-              error("Unknown event handler property `%s`. It will be ignored.", name);
-              warnedProperties$1[name] = true;
+            if (EVENT_NAME_REGEX.test(name2)) {
+              error("Unknown event handler property `%s`. It will be ignored.", name2);
+              warnedProperties$1[name2] = true;
               return true;
             }
-          } else if (EVENT_NAME_REGEX.test(name)) {
-            if (INVALID_EVENT_NAME_REGEX.test(name)) {
-              error("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name);
+          } else if (EVENT_NAME_REGEX.test(name2)) {
+            if (INVALID_EVENT_NAME_REGEX.test(name2)) {
+              error("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name2);
             }
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
-          if (rARIA$1.test(name) || rARIACamel$1.test(name)) {
+          if (rARIA$1.test(name2) || rARIACamel$1.test(name2)) {
             return true;
           }
           if (lowerCasedName === "innerhtml") {
             error("Directly setting property `innerHTML` is not permitted. For more information, lookup documentation on `dangerouslySetInnerHTML`.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (lowerCasedName === "aria") {
             error("The `aria` attribute is reserved for future use in React. Pass individual `aria-` attributes instead.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (lowerCasedName === "is" && value !== null && value !== void 0 && typeof value !== "string") {
             error("Received a `%s` for a string attribute `is`. If this is expected, cast the value to a string.", typeof value);
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (typeof value === "number" && isNaN(value)) {
-            error("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name);
-            warnedProperties$1[name] = true;
+            error("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name2);
+            warnedProperties$1[name2] = true;
             return true;
           }
-          var propertyInfo = getPropertyInfo(name);
+          var propertyInfo = getPropertyInfo(name2);
           var isReserved = propertyInfo !== null && propertyInfo.type === RESERVED;
           if (possibleStandardNames.hasOwnProperty(lowerCasedName)) {
             var standardName = possibleStandardNames[lowerCasedName];
-            if (standardName !== name) {
-              error("Invalid DOM property `%s`. Did you mean `%s`?", name, standardName);
-              warnedProperties$1[name] = true;
+            if (standardName !== name2) {
+              error("Invalid DOM property `%s`. Did you mean `%s`?", name2, standardName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-          } else if (!isReserved && name !== lowerCasedName) {
-            error("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name, lowerCasedName);
-            warnedProperties$1[name] = true;
+          } else if (!isReserved && name2 !== lowerCasedName) {
+            error("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name2, lowerCasedName);
+            warnedProperties$1[name2] = true;
             return true;
           }
-          if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name, value, propertyInfo)) {
+          if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name2, value, propertyInfo)) {
             if (value) {
-              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name, name, value, name);
+              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name2, name2, value, name2);
             } else {
-              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name, name, value, name, name, name);
+              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name2, name2, value, name2, name2, name2);
             }
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (isReserved) {
             return true;
           }
-          if (shouldRemoveAttributeWithWarning(name, value, propertyInfo)) {
-            warnedProperties$1[name] = true;
+          if (shouldRemoveAttributeWithWarning(name2, value, propertyInfo)) {
+            warnedProperties$1[name2] = true;
             return false;
           }
           if ((value === "false" || value === "true") && propertyInfo !== null && propertyInfo.type === BOOLEAN) {
-            error("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name, value);
-            warnedProperties$1[name] = true;
+            error("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name2, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name2, value);
+            warnedProperties$1[name2] = true;
             return true;
           }
           return true;
@@ -7586,61 +7586,61 @@ function requireReactDomServerLegacy_node_development() {
             return character.toUpperCase();
           });
         };
-        var warnHyphenatedStyleName = function(name) {
-          if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+        var warnHyphenatedStyleName = function(name2) {
+          if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
             return;
           }
-          warnedStyleNames[name] = true;
+          warnedStyleNames[name2] = true;
           error(
             "Unsupported style property %s. Did you mean %s?",
-            name,
+            name2,
             // As Andi Smith suggests
             // (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
             // is converted to lowercase `ms`.
-            camelize(name.replace(msPattern2, "ms-"))
+            camelize(name2.replace(msPattern2, "ms-"))
           );
         };
-        var warnBadVendoredStyleName = function(name) {
-          if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+        var warnBadVendoredStyleName = function(name2) {
+          if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
             return;
           }
-          warnedStyleNames[name] = true;
-          error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name, name.charAt(0).toUpperCase() + name.slice(1));
+          warnedStyleNames[name2] = true;
+          error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name2, name2.charAt(0).toUpperCase() + name2.slice(1));
         };
-        var warnStyleValueWithSemicolon = function(name, value) {
+        var warnStyleValueWithSemicolon = function(name2, value) {
           if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
             return;
           }
           warnedStyleValues[value] = true;
-          error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name, value.replace(badStyleValueWithSemicolonPattern, ""));
+          error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name2, value.replace(badStyleValueWithSemicolonPattern, ""));
         };
-        var warnStyleValueIsNaN = function(name, value) {
+        var warnStyleValueIsNaN = function(name2, value) {
           if (warnedForNaNValue) {
             return;
           }
           warnedForNaNValue = true;
-          error("`NaN` is an invalid value for the `%s` css style property.", name);
+          error("`NaN` is an invalid value for the `%s` css style property.", name2);
         };
-        var warnStyleValueIsInfinity = function(name, value) {
+        var warnStyleValueIsInfinity = function(name2, value) {
           if (warnedForInfinityValue) {
             return;
           }
           warnedForInfinityValue = true;
-          error("`Infinity` is an invalid value for the `%s` css style property.", name);
+          error("`Infinity` is an invalid value for the `%s` css style property.", name2);
         };
-        warnValidStyle = function(name, value) {
-          if (name.indexOf("-") > -1) {
-            warnHyphenatedStyleName(name);
-          } else if (badVendoredStyleNamePattern.test(name)) {
-            warnBadVendoredStyleName(name);
+        warnValidStyle = function(name2, value) {
+          if (name2.indexOf("-") > -1) {
+            warnHyphenatedStyleName(name2);
+          } else if (badVendoredStyleNamePattern.test(name2)) {
+            warnBadVendoredStyleName(name2);
           } else if (badStyleValueWithSemicolonPattern.test(value)) {
-            warnStyleValueWithSemicolon(name, value);
+            warnStyleValueWithSemicolon(name2, value);
           }
           if (typeof value === "number") {
             if (isNaN(value)) {
-              warnStyleValueIsNaN(name, value);
+              warnStyleValueIsNaN(name2, value);
             } else if (!isFinite(value)) {
-              warnStyleValueIsInfinity(name, value);
+              warnStyleValueIsInfinity(name2, value);
             }
           }
         };
@@ -7696,8 +7696,8 @@ function requireReactDomServerLegacy_node_development() {
       }
       var uppercasePattern = /([A-Z])/g;
       var msPattern$1 = /^ms-/;
-      function hyphenateStyleName2(name) {
-        return name.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern$1, "-ms-");
+      function hyphenateStyleName2(name2) {
+        return name2.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern$1, "-ms-");
       }
       var isJavaScriptProtocol = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*\:/i;
       var didWarn = false;
@@ -7876,8 +7876,8 @@ function requireReactDomServerLegacy_node_development() {
       var attributeAssign = stringToPrecomputedChunk('="');
       var attributeEnd = stringToPrecomputedChunk('"');
       var attributeEmptyString = stringToPrecomputedChunk('=""');
-      function pushAttribute(target, responseState, name, value) {
-        switch (name) {
+      function pushAttribute(target, responseState, name2, value) {
+        switch (name2) {
           case "style": {
             pushStyle(target, responseState, value);
             return;
@@ -7894,11 +7894,11 @@ function requireReactDomServerLegacy_node_development() {
         if (
           // shouldIgnoreAttribute
           // We have already filtered out null/undefined and reserved words.
-          name.length > 2 && (name[0] === "o" || name[0] === "O") && (name[1] === "n" || name[1] === "N")
+          name2.length > 2 && (name2[0] === "o" || name2[0] === "O") && (name2[1] === "n" || name2[1] === "N")
         ) {
           return;
         }
-        var propertyInfo = getPropertyInfo(name);
+        var propertyInfo = getPropertyInfo(name2);
         if (propertyInfo !== null) {
           switch (typeof value) {
             case "function":
@@ -7947,20 +7947,20 @@ function requireReactDomServerLegacy_node_development() {
               }
               target.push(attributeSeparator, attributeNameChunk, attributeAssign, stringToChunk(escapeTextForBrowser(value)), attributeEnd);
           }
-        } else if (isAttributeNameSafe(name)) {
+        } else if (isAttributeNameSafe(name2)) {
           switch (typeof value) {
             case "function":
             // $FlowIssue symbol is perfectly valid here
             case "symbol":
               return;
             case "boolean": {
-              var prefix2 = name.toLowerCase().slice(0, 5);
+              var prefix2 = name2.toLowerCase().slice(0, 5);
               if (prefix2 !== "data-" && prefix2 !== "aria-") {
                 return;
               }
             }
           }
-          target.push(attributeSeparator, stringToChunk(name), attributeAssign, stringToChunk(escapeTextForBrowser(value)), attributeEnd);
+          target.push(attributeSeparator, stringToChunk(name2), attributeAssign, stringToChunk(escapeTextForBrowser(value)), attributeEnd);
         }
       }
       var endOfStartTag = stringToPrecomputedChunk(">");
@@ -9105,7 +9105,7 @@ function requireReactDomServerLegacy_node_development() {
       }
       var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
       var prefix;
-      function describeBuiltInComponentFrame(name, source, ownerFn) {
+      function describeBuiltInComponentFrame(name2, source, ownerFn) {
         {
           if (prefix === void 0) {
             try {
@@ -9115,7 +9115,7 @@ function requireReactDomServerLegacy_node_development() {
               prefix = match && match[1] || "";
             }
           }
-          return "\n" + prefix + name;
+          return "\n" + prefix + name2;
         }
       }
       var reentry = false;
@@ -9218,8 +9218,8 @@ function requireReactDomServerLegacy_node_development() {
           }
           Error.prepareStackTrace = previousPrepareStackTrace;
         }
-        var name = fn ? fn.displayName || fn.name : "";
-        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+        var name2 = fn ? fn.displayName || fn.name : "";
+        var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
         {
           if (typeof fn === "function") {
             componentFrameCache.set(fn, syntheticFrame);
@@ -9341,8 +9341,8 @@ function requireReactDomServerLegacy_node_development() {
             context[key] = unmaskedContext[key];
           }
           {
-            var name = getComponentNameFromType(type) || "Unknown";
-            checkPropTypes(contextTypes, context, "context", name);
+            var name2 = getComponentNameFromType(type) || "Unknown";
+            checkPropTypes(contextTypes, context, "context", name2);
           }
           return context;
         }
@@ -9366,8 +9366,8 @@ function requireReactDomServerLegacy_node_development() {
             }
           }
           {
-            var name = getComponentNameFromType(type) || "Unknown";
-            checkPropTypes(childContextTypes, childContext, "child context", name);
+            var name2 = getComponentNameFromType(type) || "Unknown";
+            checkPropTypes(childContextTypes, childContext, "child context", name2);
           }
           return assign({}, parentContext, childContext);
         }
@@ -9699,80 +9699,80 @@ function requireReactDomServerLegacy_node_development() {
       }
       function checkClassInstance(instance, ctor, newProps) {
         {
-          var name = getComponentNameFromType(ctor) || "Component";
+          var name2 = getComponentNameFromType(ctor) || "Component";
           var renderPresent = instance.render;
           if (!renderPresent) {
             if (ctor.prototype && typeof ctor.prototype.render === "function") {
-              error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name);
+              error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name2);
             } else {
-              error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name);
+              error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name2);
             }
           }
           if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
-            error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name);
+            error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name2);
           }
           if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
-            error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name);
+            error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name2);
           }
           if (instance.propTypes) {
-            error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name);
+            error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name2);
           }
           if (instance.contextType) {
-            error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name);
+            error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name2);
           }
           {
             if (instance.contextTypes) {
-              error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name);
+              error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name2);
             }
             if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
               didWarnAboutContextTypeAndContextTypes.add(ctor);
-              error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name);
+              error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name2);
             }
           }
           if (typeof instance.componentShouldUpdate === "function") {
-            error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name);
+            error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name2);
           }
           if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== "undefined") {
             error("%s has a method called shouldComponentUpdate(). shouldComponentUpdate should not be used when extending React.PureComponent. Please extend React.Component if shouldComponentUpdate is used.", getComponentNameFromType(ctor) || "A pure component");
           }
           if (typeof instance.componentDidUnmount === "function") {
-            error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name);
+            error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name2);
           }
           if (typeof instance.componentDidReceiveProps === "function") {
-            error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name);
+            error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name2);
           }
           if (typeof instance.componentWillRecieveProps === "function") {
-            error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name);
+            error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name2);
           }
           if (typeof instance.UNSAFE_componentWillRecieveProps === "function") {
-            error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name);
+            error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name2);
           }
           var hasMutatedProps = instance.props !== newProps;
           if (instance.props !== void 0 && hasMutatedProps) {
-            error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name, name);
+            error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name2, name2);
           }
           if (instance.defaultProps) {
-            error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name, name);
+            error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name2, name2);
           }
           if (typeof instance.getSnapshotBeforeUpdate === "function" && typeof instance.componentDidUpdate !== "function" && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
             didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
             error("%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). This component defines getSnapshotBeforeUpdate() only.", getComponentNameFromType(ctor));
           }
           if (typeof instance.getDerivedStateFromProps === "function") {
-            error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+            error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
           }
           if (typeof instance.getDerivedStateFromError === "function") {
-            error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+            error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
           }
           if (typeof ctor.getSnapshotBeforeUpdate === "function") {
-            error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name);
+            error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name2);
           }
           var _state = instance.state;
           if (_state && (typeof _state !== "object" || isArray(_state))) {
-            error("%s.state: must be set to an object or null", name);
+            error("%s.state: must be set to an object or null", name2);
           }
           if (typeof instance.getChildContext === "function" && typeof ctor.childContextTypes !== "object") {
-            error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name);
+            error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name2);
           }
         }
       }
@@ -11810,7 +11810,7 @@ function requireReactDomServer_node_development() {
         }
         return false;
       }
-      function shouldRemoveAttributeWithWarning(name, value, propertyInfo, isCustomComponentTag) {
+      function shouldRemoveAttributeWithWarning(name2, value, propertyInfo, isCustomComponentTag) {
         if (propertyInfo !== null && propertyInfo.type === RESERVED) {
           return false;
         }
@@ -11823,7 +11823,7 @@ function requireReactDomServer_node_development() {
             if (propertyInfo !== null) {
               return !propertyInfo.acceptsBooleans;
             } else {
-              var prefix2 = name.toLowerCase().slice(0, 5);
+              var prefix2 = name2.toLowerCase().slice(0, 5);
               return prefix2 !== "data-" && prefix2 !== "aria-";
             }
           }
@@ -11831,15 +11831,15 @@ function requireReactDomServer_node_development() {
             return false;
         }
       }
-      function getPropertyInfo(name) {
-        return properties.hasOwnProperty(name) ? properties[name] : null;
+      function getPropertyInfo(name2) {
+        return properties.hasOwnProperty(name2) ? properties[name2] : null;
       }
-      function PropertyInfoRecord(name, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
+      function PropertyInfoRecord(name2, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
         this.acceptsBooleans = type === BOOLEANISH_STRING || type === BOOLEAN || type === OVERLOADED_BOOLEAN;
         this.attributeName = attributeName;
         this.attributeNamespace = attributeNamespace;
         this.mustUseProperty = mustUseProperty;
-        this.propertyName = name;
+        this.propertyName = name2;
         this.type = type;
         this.sanitizeURL = sanitizeURL2;
         this.removeEmptyString = removeEmptyString;
@@ -11858,13 +11858,13 @@ function requireReactDomServer_node_development() {
         "suppressHydrationWarning",
         "style"
       ];
-      reservedProps.forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      reservedProps.forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           RESERVED,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -11874,9 +11874,9 @@ function requireReactDomServer_node_development() {
         );
       });
       [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function(_ref) {
-        var name = _ref[0], attributeName = _ref[1];
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = _ref[0], attributeName = _ref[1];
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -11889,13 +11889,13 @@ function requireReactDomServer_node_development() {
           false
         );
       });
-      ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEANISH_STRING,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -11904,13 +11904,13 @@ function requireReactDomServer_node_development() {
           false
         );
       });
-      ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEANISH_STRING,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -11946,13 +11946,13 @@ function requireReactDomServer_node_development() {
         "seamless",
         // Microdata
         "itemScope"
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEAN,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -11971,13 +11971,13 @@ function requireReactDomServer_node_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEAN,
           true,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -11992,13 +11992,13 @@ function requireReactDomServer_node_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           OVERLOADED_BOOLEAN,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -12015,13 +12015,13 @@ function requireReactDomServer_node_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           POSITIVE_NUMERIC,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -12030,13 +12030,13 @@ function requireReactDomServer_node_development() {
           false
         );
       });
-      ["rowSpan", "start"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["rowSpan", "start"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           NUMERIC,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -12127,9 +12127,9 @@ function requireReactDomServer_node_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -12152,9 +12152,9 @@ function requireReactDomServer_node_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -12173,9 +12173,9 @@ function requireReactDomServer_node_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -12386,35 +12386,35 @@ function requireReactDomServer_node_development() {
       var warnedProperties = {};
       var rARIA = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
       var rARIACamel = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-      function validateProperty(tagName, name) {
+      function validateProperty(tagName, name2) {
         {
-          if (hasOwnProperty.call(warnedProperties, name) && warnedProperties[name]) {
+          if (hasOwnProperty.call(warnedProperties, name2) && warnedProperties[name2]) {
             return true;
           }
-          if (rARIACamel.test(name)) {
-            var ariaName = "aria-" + name.slice(4).toLowerCase();
+          if (rARIACamel.test(name2)) {
+            var ariaName = "aria-" + name2.slice(4).toLowerCase();
             var correctName = ariaProperties.hasOwnProperty(ariaName) ? ariaName : null;
             if (correctName == null) {
-              error("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name);
-              warnedProperties[name] = true;
+              error("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name2);
+              warnedProperties[name2] = true;
               return true;
             }
-            if (name !== correctName) {
-              error("Invalid ARIA attribute `%s`. Did you mean `%s`?", name, correctName);
-              warnedProperties[name] = true;
+            if (name2 !== correctName) {
+              error("Invalid ARIA attribute `%s`. Did you mean `%s`?", name2, correctName);
+              warnedProperties[name2] = true;
               return true;
             }
           }
-          if (rARIA.test(name)) {
-            var lowerCasedName = name.toLowerCase();
+          if (rARIA.test(name2)) {
+            var lowerCasedName = name2.toLowerCase();
             var standardName = ariaProperties.hasOwnProperty(lowerCasedName) ? lowerCasedName : null;
             if (standardName == null) {
-              warnedProperties[name] = true;
+              warnedProperties[name2] = true;
               return false;
             }
-            if (name !== standardName) {
-              error("Unknown ARIA attribute `%s`. Did you mean `%s`?", name, standardName);
-              warnedProperties[name] = true;
+            if (name2 !== standardName) {
+              error("Unknown ARIA attribute `%s`. Did you mean `%s`?", name2, standardName);
+              warnedProperties[name2] = true;
               return true;
             }
           }
@@ -12959,95 +12959,95 @@ function requireReactDomServer_node_development() {
         var INVALID_EVENT_NAME_REGEX = /^on[^A-Z]/;
         var rARIA$1 = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
         var rARIACamel$1 = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-        validateProperty$1 = function(tagName, name, value, eventRegistry) {
-          if (hasOwnProperty.call(warnedProperties$1, name) && warnedProperties$1[name]) {
+        validateProperty$1 = function(tagName, name2, value, eventRegistry) {
+          if (hasOwnProperty.call(warnedProperties$1, name2) && warnedProperties$1[name2]) {
             return true;
           }
-          var lowerCasedName = name.toLowerCase();
+          var lowerCasedName = name2.toLowerCase();
           if (lowerCasedName === "onfocusin" || lowerCasedName === "onfocusout") {
             error("React uses onFocus and onBlur instead of onFocusIn and onFocusOut. All React events are normalized to bubble, so onFocusIn and onFocusOut are not needed/supported by React.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (eventRegistry != null) {
             var registrationNameDependencies = eventRegistry.registrationNameDependencies, possibleRegistrationNames = eventRegistry.possibleRegistrationNames;
-            if (registrationNameDependencies.hasOwnProperty(name)) {
+            if (registrationNameDependencies.hasOwnProperty(name2)) {
               return true;
             }
             var registrationName = possibleRegistrationNames.hasOwnProperty(lowerCasedName) ? possibleRegistrationNames[lowerCasedName] : null;
             if (registrationName != null) {
-              error("Invalid event handler property `%s`. Did you mean `%s`?", name, registrationName);
-              warnedProperties$1[name] = true;
+              error("Invalid event handler property `%s`. Did you mean `%s`?", name2, registrationName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-            if (EVENT_NAME_REGEX.test(name)) {
-              error("Unknown event handler property `%s`. It will be ignored.", name);
-              warnedProperties$1[name] = true;
+            if (EVENT_NAME_REGEX.test(name2)) {
+              error("Unknown event handler property `%s`. It will be ignored.", name2);
+              warnedProperties$1[name2] = true;
               return true;
             }
-          } else if (EVENT_NAME_REGEX.test(name)) {
-            if (INVALID_EVENT_NAME_REGEX.test(name)) {
-              error("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name);
+          } else if (EVENT_NAME_REGEX.test(name2)) {
+            if (INVALID_EVENT_NAME_REGEX.test(name2)) {
+              error("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name2);
             }
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
-          if (rARIA$1.test(name) || rARIACamel$1.test(name)) {
+          if (rARIA$1.test(name2) || rARIACamel$1.test(name2)) {
             return true;
           }
           if (lowerCasedName === "innerhtml") {
             error("Directly setting property `innerHTML` is not permitted. For more information, lookup documentation on `dangerouslySetInnerHTML`.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (lowerCasedName === "aria") {
             error("The `aria` attribute is reserved for future use in React. Pass individual `aria-` attributes instead.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (lowerCasedName === "is" && value !== null && value !== void 0 && typeof value !== "string") {
             error("Received a `%s` for a string attribute `is`. If this is expected, cast the value to a string.", typeof value);
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (typeof value === "number" && isNaN(value)) {
-            error("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name);
-            warnedProperties$1[name] = true;
+            error("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name2);
+            warnedProperties$1[name2] = true;
             return true;
           }
-          var propertyInfo = getPropertyInfo(name);
+          var propertyInfo = getPropertyInfo(name2);
           var isReserved = propertyInfo !== null && propertyInfo.type === RESERVED;
           if (possibleStandardNames.hasOwnProperty(lowerCasedName)) {
             var standardName = possibleStandardNames[lowerCasedName];
-            if (standardName !== name) {
-              error("Invalid DOM property `%s`. Did you mean `%s`?", name, standardName);
-              warnedProperties$1[name] = true;
+            if (standardName !== name2) {
+              error("Invalid DOM property `%s`. Did you mean `%s`?", name2, standardName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-          } else if (!isReserved && name !== lowerCasedName) {
-            error("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name, lowerCasedName);
-            warnedProperties$1[name] = true;
+          } else if (!isReserved && name2 !== lowerCasedName) {
+            error("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name2, lowerCasedName);
+            warnedProperties$1[name2] = true;
             return true;
           }
-          if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name, value, propertyInfo)) {
+          if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name2, value, propertyInfo)) {
             if (value) {
-              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name, name, value, name);
+              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name2, name2, value, name2);
             } else {
-              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name, name, value, name, name, name);
+              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name2, name2, value, name2, name2, name2);
             }
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (isReserved) {
             return true;
           }
-          if (shouldRemoveAttributeWithWarning(name, value, propertyInfo)) {
-            warnedProperties$1[name] = true;
+          if (shouldRemoveAttributeWithWarning(name2, value, propertyInfo)) {
+            warnedProperties$1[name2] = true;
             return false;
           }
           if ((value === "false" || value === "true") && propertyInfo !== null && propertyInfo.type === BOOLEAN) {
-            error("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name, value);
-            warnedProperties$1[name] = true;
+            error("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name2, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name2, value);
+            warnedProperties$1[name2] = true;
             return true;
           }
           return true;
@@ -13094,61 +13094,61 @@ function requireReactDomServer_node_development() {
             return character.toUpperCase();
           });
         };
-        var warnHyphenatedStyleName = function(name) {
-          if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+        var warnHyphenatedStyleName = function(name2) {
+          if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
             return;
           }
-          warnedStyleNames[name] = true;
+          warnedStyleNames[name2] = true;
           error(
             "Unsupported style property %s. Did you mean %s?",
-            name,
+            name2,
             // As Andi Smith suggests
             // (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
             // is converted to lowercase `ms`.
-            camelize(name.replace(msPattern2, "ms-"))
+            camelize(name2.replace(msPattern2, "ms-"))
           );
         };
-        var warnBadVendoredStyleName = function(name) {
-          if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+        var warnBadVendoredStyleName = function(name2) {
+          if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
             return;
           }
-          warnedStyleNames[name] = true;
-          error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name, name.charAt(0).toUpperCase() + name.slice(1));
+          warnedStyleNames[name2] = true;
+          error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name2, name2.charAt(0).toUpperCase() + name2.slice(1));
         };
-        var warnStyleValueWithSemicolon = function(name, value) {
+        var warnStyleValueWithSemicolon = function(name2, value) {
           if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
             return;
           }
           warnedStyleValues[value] = true;
-          error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name, value.replace(badStyleValueWithSemicolonPattern, ""));
+          error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name2, value.replace(badStyleValueWithSemicolonPattern, ""));
         };
-        var warnStyleValueIsNaN = function(name, value) {
+        var warnStyleValueIsNaN = function(name2, value) {
           if (warnedForNaNValue) {
             return;
           }
           warnedForNaNValue = true;
-          error("`NaN` is an invalid value for the `%s` css style property.", name);
+          error("`NaN` is an invalid value for the `%s` css style property.", name2);
         };
-        var warnStyleValueIsInfinity = function(name, value) {
+        var warnStyleValueIsInfinity = function(name2, value) {
           if (warnedForInfinityValue) {
             return;
           }
           warnedForInfinityValue = true;
-          error("`Infinity` is an invalid value for the `%s` css style property.", name);
+          error("`Infinity` is an invalid value for the `%s` css style property.", name2);
         };
-        warnValidStyle = function(name, value) {
-          if (name.indexOf("-") > -1) {
-            warnHyphenatedStyleName(name);
-          } else if (badVendoredStyleNamePattern.test(name)) {
-            warnBadVendoredStyleName(name);
+        warnValidStyle = function(name2, value) {
+          if (name2.indexOf("-") > -1) {
+            warnHyphenatedStyleName(name2);
+          } else if (badVendoredStyleNamePattern.test(name2)) {
+            warnBadVendoredStyleName(name2);
           } else if (badStyleValueWithSemicolonPattern.test(value)) {
-            warnStyleValueWithSemicolon(name, value);
+            warnStyleValueWithSemicolon(name2, value);
           }
           if (typeof value === "number") {
             if (isNaN(value)) {
-              warnStyleValueIsNaN(name, value);
+              warnStyleValueIsNaN(name2, value);
             } else if (!isFinite(value)) {
-              warnStyleValueIsInfinity(name, value);
+              warnStyleValueIsInfinity(name2, value);
             }
           }
         };
@@ -13204,8 +13204,8 @@ function requireReactDomServer_node_development() {
       }
       var uppercasePattern = /([A-Z])/g;
       var msPattern$1 = /^ms-/;
-      function hyphenateStyleName2(name) {
-        return name.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern$1, "-ms-");
+      function hyphenateStyleName2(name2) {
+        return name2.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern$1, "-ms-");
       }
       var isJavaScriptProtocol = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*\:/i;
       var didWarn = false;
@@ -13415,8 +13415,8 @@ function requireReactDomServer_node_development() {
       var attributeAssign = stringToPrecomputedChunk('="');
       var attributeEnd = stringToPrecomputedChunk('"');
       var attributeEmptyString = stringToPrecomputedChunk('=""');
-      function pushAttribute(target, responseState, name, value) {
-        switch (name) {
+      function pushAttribute(target, responseState, name2, value) {
+        switch (name2) {
           case "style": {
             pushStyle(target, responseState, value);
             return;
@@ -13433,11 +13433,11 @@ function requireReactDomServer_node_development() {
         if (
           // shouldIgnoreAttribute
           // We have already filtered out null/undefined and reserved words.
-          name.length > 2 && (name[0] === "o" || name[0] === "O") && (name[1] === "n" || name[1] === "N")
+          name2.length > 2 && (name2[0] === "o" || name2[0] === "O") && (name2[1] === "n" || name2[1] === "N")
         ) {
           return;
         }
-        var propertyInfo = getPropertyInfo(name);
+        var propertyInfo = getPropertyInfo(name2);
         if (propertyInfo !== null) {
           switch (typeof value) {
             case "function":
@@ -13486,20 +13486,20 @@ function requireReactDomServer_node_development() {
               }
               target.push(attributeSeparator, attributeNameChunk, attributeAssign, stringToChunk(escapeTextForBrowser(value)), attributeEnd);
           }
-        } else if (isAttributeNameSafe(name)) {
+        } else if (isAttributeNameSafe(name2)) {
           switch (typeof value) {
             case "function":
             // $FlowIssue symbol is perfectly valid here
             case "symbol":
               return;
             case "boolean": {
-              var prefix2 = name.toLowerCase().slice(0, 5);
+              var prefix2 = name2.toLowerCase().slice(0, 5);
               if (prefix2 !== "data-" && prefix2 !== "aria-") {
                 return;
               }
             }
           }
-          target.push(attributeSeparator, stringToChunk(name), attributeAssign, stringToChunk(escapeTextForBrowser(value)), attributeEnd);
+          target.push(attributeSeparator, stringToChunk(name2), attributeAssign, stringToChunk(escapeTextForBrowser(value)), attributeEnd);
         }
       }
       var endOfStartTag = stringToPrecomputedChunk(">");
@@ -14580,7 +14580,7 @@ function requireReactDomServer_node_development() {
       }
       var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
       var prefix;
-      function describeBuiltInComponentFrame(name, source, ownerFn) {
+      function describeBuiltInComponentFrame(name2, source, ownerFn) {
         {
           if (prefix === void 0) {
             try {
@@ -14590,7 +14590,7 @@ function requireReactDomServer_node_development() {
               prefix = match && match[1] || "";
             }
           }
-          return "\n" + prefix + name;
+          return "\n" + prefix + name2;
         }
       }
       var reentry = false;
@@ -14693,8 +14693,8 @@ function requireReactDomServer_node_development() {
           }
           Error.prepareStackTrace = previousPrepareStackTrace;
         }
-        var name = fn ? fn.displayName || fn.name : "";
-        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+        var name2 = fn ? fn.displayName || fn.name : "";
+        var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
         {
           if (typeof fn === "function") {
             componentFrameCache.set(fn, syntheticFrame);
@@ -14816,8 +14816,8 @@ function requireReactDomServer_node_development() {
             context[key] = unmaskedContext[key];
           }
           {
-            var name = getComponentNameFromType(type) || "Unknown";
-            checkPropTypes(contextTypes, context, "context", name);
+            var name2 = getComponentNameFromType(type) || "Unknown";
+            checkPropTypes(contextTypes, context, "context", name2);
           }
           return context;
         }
@@ -14841,8 +14841,8 @@ function requireReactDomServer_node_development() {
             }
           }
           {
-            var name = getComponentNameFromType(type) || "Unknown";
-            checkPropTypes(childContextTypes, childContext, "child context", name);
+            var name2 = getComponentNameFromType(type) || "Unknown";
+            checkPropTypes(childContextTypes, childContext, "child context", name2);
           }
           return assign({}, parentContext, childContext);
         }
@@ -15174,80 +15174,80 @@ function requireReactDomServer_node_development() {
       }
       function checkClassInstance(instance, ctor, newProps) {
         {
-          var name = getComponentNameFromType(ctor) || "Component";
+          var name2 = getComponentNameFromType(ctor) || "Component";
           var renderPresent = instance.render;
           if (!renderPresent) {
             if (ctor.prototype && typeof ctor.prototype.render === "function") {
-              error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name);
+              error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name2);
             } else {
-              error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name);
+              error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name2);
             }
           }
           if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
-            error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name);
+            error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name2);
           }
           if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
-            error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name);
+            error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name2);
           }
           if (instance.propTypes) {
-            error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name);
+            error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name2);
           }
           if (instance.contextType) {
-            error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name);
+            error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name2);
           }
           {
             if (instance.contextTypes) {
-              error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name);
+              error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name2);
             }
             if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
               didWarnAboutContextTypeAndContextTypes.add(ctor);
-              error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name);
+              error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name2);
             }
           }
           if (typeof instance.componentShouldUpdate === "function") {
-            error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name);
+            error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name2);
           }
           if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== "undefined") {
             error("%s has a method called shouldComponentUpdate(). shouldComponentUpdate should not be used when extending React.PureComponent. Please extend React.Component if shouldComponentUpdate is used.", getComponentNameFromType(ctor) || "A pure component");
           }
           if (typeof instance.componentDidUnmount === "function") {
-            error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name);
+            error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name2);
           }
           if (typeof instance.componentDidReceiveProps === "function") {
-            error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name);
+            error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name2);
           }
           if (typeof instance.componentWillRecieveProps === "function") {
-            error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name);
+            error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name2);
           }
           if (typeof instance.UNSAFE_componentWillRecieveProps === "function") {
-            error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name);
+            error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name2);
           }
           var hasMutatedProps = instance.props !== newProps;
           if (instance.props !== void 0 && hasMutatedProps) {
-            error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name, name);
+            error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name2, name2);
           }
           if (instance.defaultProps) {
-            error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name, name);
+            error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name2, name2);
           }
           if (typeof instance.getSnapshotBeforeUpdate === "function" && typeof instance.componentDidUpdate !== "function" && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
             didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
             error("%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). This component defines getSnapshotBeforeUpdate() only.", getComponentNameFromType(ctor));
           }
           if (typeof instance.getDerivedStateFromProps === "function") {
-            error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+            error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
           }
           if (typeof instance.getDerivedStateFromError === "function") {
-            error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+            error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
           }
           if (typeof ctor.getSnapshotBeforeUpdate === "function") {
-            error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name);
+            error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name2);
           }
           var _state = instance.state;
           if (_state && (typeof _state !== "object" || isArray(_state))) {
-            error("%s.state: must be set to an object or null", name);
+            error("%s.state: must be set to an object or null", name2);
           }
           if (typeof instance.getChildContext === "function" && typeof ctor.childContextTypes !== "object") {
-            error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name);
+            error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name2);
           }
         }
       }
@@ -25394,19 +25394,19 @@ function requireReactDom_development() {
         }
         return false;
       }
-      function shouldIgnoreAttribute(name, propertyInfo, isCustomComponentTag) {
+      function shouldIgnoreAttribute(name2, propertyInfo, isCustomComponentTag) {
         if (propertyInfo !== null) {
           return propertyInfo.type === RESERVED;
         }
         if (isCustomComponentTag) {
           return false;
         }
-        if (name.length > 2 && (name[0] === "o" || name[0] === "O") && (name[1] === "n" || name[1] === "N")) {
+        if (name2.length > 2 && (name2[0] === "o" || name2[0] === "O") && (name2[1] === "n" || name2[1] === "N")) {
           return true;
         }
         return false;
       }
-      function shouldRemoveAttributeWithWarning(name, value, propertyInfo, isCustomComponentTag) {
+      function shouldRemoveAttributeWithWarning(name2, value, propertyInfo, isCustomComponentTag) {
         if (propertyInfo !== null && propertyInfo.type === RESERVED) {
           return false;
         }
@@ -25422,7 +25422,7 @@ function requireReactDom_development() {
             if (propertyInfo !== null) {
               return !propertyInfo.acceptsBooleans;
             } else {
-              var prefix2 = name.toLowerCase().slice(0, 5);
+              var prefix2 = name2.toLowerCase().slice(0, 5);
               return prefix2 !== "data-" && prefix2 !== "aria-";
             }
           }
@@ -25430,11 +25430,11 @@ function requireReactDom_development() {
             return false;
         }
       }
-      function shouldRemoveAttribute(name, value, propertyInfo, isCustomComponentTag) {
+      function shouldRemoveAttribute(name2, value, propertyInfo, isCustomComponentTag) {
         if (value === null || typeof value === "undefined") {
           return true;
         }
-        if (shouldRemoveAttributeWithWarning(name, value, propertyInfo, isCustomComponentTag)) {
+        if (shouldRemoveAttributeWithWarning(name2, value, propertyInfo, isCustomComponentTag)) {
           return true;
         }
         if (isCustomComponentTag) {
@@ -25454,15 +25454,15 @@ function requireReactDom_development() {
         }
         return false;
       }
-      function getPropertyInfo(name) {
-        return properties.hasOwnProperty(name) ? properties[name] : null;
+      function getPropertyInfo(name2) {
+        return properties.hasOwnProperty(name2) ? properties[name2] : null;
       }
-      function PropertyInfoRecord(name, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
+      function PropertyInfoRecord(name2, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
         this.acceptsBooleans = type === BOOLEANISH_STRING || type === BOOLEAN || type === OVERLOADED_BOOLEAN;
         this.attributeName = attributeName;
         this.attributeNamespace = attributeNamespace;
         this.mustUseProperty = mustUseProperty;
-        this.propertyName = name;
+        this.propertyName = name2;
         this.type = type;
         this.sanitizeURL = sanitizeURL2;
         this.removeEmptyString = removeEmptyString;
@@ -25481,13 +25481,13 @@ function requireReactDom_development() {
         "suppressHydrationWarning",
         "style"
       ];
-      reservedProps.forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      reservedProps.forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           RESERVED,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -25497,9 +25497,9 @@ function requireReactDom_development() {
         );
       });
       [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function(_ref) {
-        var name = _ref[0], attributeName = _ref[1];
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = _ref[0], attributeName = _ref[1];
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -25512,13 +25512,13 @@ function requireReactDom_development() {
           false
         );
       });
-      ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEANISH_STRING,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -25527,13 +25527,13 @@ function requireReactDom_development() {
           false
         );
       });
-      ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEANISH_STRING,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -25569,13 +25569,13 @@ function requireReactDom_development() {
         "seamless",
         // Microdata
         "itemScope"
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEAN,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -25594,13 +25594,13 @@ function requireReactDom_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           BOOLEAN,
           true,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -25615,13 +25615,13 @@ function requireReactDom_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           OVERLOADED_BOOLEAN,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -25638,13 +25638,13 @@ function requireReactDom_development() {
         // NOTE: if you add a camelCased prop to this list,
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
-      ].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           POSITIVE_NUMERIC,
           false,
           // mustUseProperty
-          name,
+          name2,
           // attributeName
           null,
           // attributeNamespace
@@ -25653,13 +25653,13 @@ function requireReactDom_development() {
           false
         );
       });
-      ["rowSpan", "start"].forEach(function(name) {
-        properties[name] = new PropertyInfoRecord(
-          name,
+      ["rowSpan", "start"].forEach(function(name2) {
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           NUMERIC,
           false,
           // mustUseProperty
-          name.toLowerCase(),
+          name2.toLowerCase(),
           // attributeName
           null,
           // attributeNamespace
@@ -25750,9 +25750,9 @@ function requireReactDom_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -25775,9 +25775,9 @@ function requireReactDom_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -25796,9 +25796,9 @@ function requireReactDom_development() {
         // you'll need to set attributeName to name.toLowerCase()
         // instead in the assignment below.
       ].forEach(function(attributeName) {
-        var name = attributeName.replace(CAMELIZE, capitalize);
-        properties[name] = new PropertyInfoRecord(
-          name,
+        var name2 = attributeName.replace(CAMELIZE, capitalize);
+        properties[name2] = new PropertyInfoRecord(
+          name2,
           STRING,
           false,
           // mustUseProperty
@@ -25861,14 +25861,14 @@ function requireReactDom_development() {
           }
         }
       }
-      function getValueForProperty(node, name, expected, propertyInfo) {
+      function getValueForProperty(node, name2, expected, propertyInfo) {
         {
           if (propertyInfo.mustUseProperty) {
             var propertyName = propertyInfo.propertyName;
             return node[propertyName];
           } else {
             {
-              checkAttributeStringCoercion(expected, name);
+              checkAttributeStringCoercion(expected, name2);
             }
             if (propertyInfo.sanitizeURL) {
               sanitizeURL("" + expected);
@@ -25881,7 +25881,7 @@ function requireReactDom_development() {
                 if (value === "") {
                   return true;
                 }
-                if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
+                if (shouldRemoveAttribute(name2, expected, propertyInfo, false)) {
                   return value;
                 }
                 if (value === "" + expected) {
@@ -25890,7 +25890,7 @@ function requireReactDom_development() {
                 return value;
               }
             } else if (node.hasAttribute(attributeName)) {
-              if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
+              if (shouldRemoveAttribute(name2, expected, propertyInfo, false)) {
                 return node.getAttribute(attributeName);
               }
               if (propertyInfo.type === BOOLEAN) {
@@ -25898,7 +25898,7 @@ function requireReactDom_development() {
               }
               stringValue = node.getAttribute(attributeName);
             }
-            if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
+            if (shouldRemoveAttribute(name2, expected, propertyInfo, false)) {
               return stringValue === null ? expected : stringValue;
             } else if (stringValue === "" + expected) {
               return expected;
@@ -25908,17 +25908,17 @@ function requireReactDom_development() {
           }
         }
       }
-      function getValueForAttribute(node, name, expected, isCustomComponentTag) {
+      function getValueForAttribute(node, name2, expected, isCustomComponentTag) {
         {
-          if (!isAttributeNameSafe(name)) {
+          if (!isAttributeNameSafe(name2)) {
             return;
           }
-          if (!node.hasAttribute(name)) {
+          if (!node.hasAttribute(name2)) {
             return expected === void 0 ? void 0 : null;
           }
-          var value = node.getAttribute(name);
+          var value = node.getAttribute(name2);
           {
-            checkAttributeStringCoercion(expected, name);
+            checkAttributeStringCoercion(expected, name2);
           }
           if (value === "" + expected) {
             return expected;
@@ -25926,22 +25926,22 @@ function requireReactDom_development() {
           return value;
         }
       }
-      function setValueForProperty(node, name, value, isCustomComponentTag) {
-        var propertyInfo = getPropertyInfo(name);
-        if (shouldIgnoreAttribute(name, propertyInfo, isCustomComponentTag)) {
+      function setValueForProperty(node, name2, value, isCustomComponentTag) {
+        var propertyInfo = getPropertyInfo(name2);
+        if (shouldIgnoreAttribute(name2, propertyInfo, isCustomComponentTag)) {
           return;
         }
-        if (shouldRemoveAttribute(name, value, propertyInfo, isCustomComponentTag)) {
+        if (shouldRemoveAttribute(name2, value, propertyInfo, isCustomComponentTag)) {
           value = null;
         }
         if (isCustomComponentTag || propertyInfo === null) {
-          if (isAttributeNameSafe(name)) {
-            var _attributeName = name;
+          if (isAttributeNameSafe(name2)) {
+            var _attributeName = name2;
             if (value === null) {
               node.removeAttribute(_attributeName);
             } else {
               {
-                checkAttributeStringCoercion(value, name);
+                checkAttributeStringCoercion(value, name2);
               }
               node.setAttribute(_attributeName, "" + value);
             }
@@ -26096,7 +26096,7 @@ function requireReactDom_development() {
       }
       var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
       var prefix;
-      function describeBuiltInComponentFrame(name, source, ownerFn) {
+      function describeBuiltInComponentFrame(name2, source, ownerFn) {
         {
           if (prefix === void 0) {
             try {
@@ -26106,7 +26106,7 @@ function requireReactDom_development() {
               prefix = match && match[1] || "";
             }
           }
-          return "\n" + prefix + name;
+          return "\n" + prefix + name2;
         }
       }
       var reentry = false;
@@ -26209,8 +26209,8 @@ function requireReactDom_development() {
           }
           Error.prepareStackTrace = previousPrepareStackTrace;
         }
-        var name = fn ? fn.displayName || fn.name : "";
-        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+        var name2 = fn ? fn.displayName || fn.name : "";
+        var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
         {
           if (typeof fn === "function") {
             componentFrameCache.set(fn, syntheticFrame);
@@ -26738,16 +26738,16 @@ function requireReactDom_development() {
             node.defaultValue = initialValue;
           }
         }
-        var name = node.name;
-        if (name !== "") {
+        var name2 = node.name;
+        if (name2 !== "") {
           node.name = "";
         }
         {
           node.defaultChecked = !node.defaultChecked;
           node.defaultChecked = !!node._wrapperState.initialChecked;
         }
-        if (name !== "") {
-          node.name = name;
+        if (name2 !== "") {
+          node.name = name2;
         }
       }
       function restoreControlledState(element, props) {
@@ -26756,16 +26756,16 @@ function requireReactDom_development() {
         updateNamedCousins(node, props);
       }
       function updateNamedCousins(rootNode, props) {
-        var name = props.name;
-        if (props.type === "radio" && name != null) {
+        var name2 = props.name;
+        if (props.type === "radio" && name2 != null) {
           var queryRoot = rootNode;
           while (queryRoot.parentNode) {
             queryRoot = queryRoot.parentNode;
           }
           {
-            checkAttributeStringCoercion(name, "name");
+            checkAttributeStringCoercion(name2, "name");
           }
-          var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name) + '][type="radio"]');
+          var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name2) + '][type="radio"]');
           for (var i2 = 0; i2 < group.length; i2++) {
             var otherNode = group[i2];
             if (otherNode === rootNode || otherNode.form !== rootNode.form) {
@@ -27201,23 +27201,23 @@ function requireReactDom_development() {
           isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
         });
       });
-      function dangerousStyleValue(name, value, isCustomProperty) {
+      function dangerousStyleValue(name2, value, isCustomProperty) {
         var isEmpty = value == null || typeof value === "boolean" || value === "";
         if (isEmpty) {
           return "";
         }
-        if (!isCustomProperty && typeof value === "number" && value !== 0 && !(isUnitlessNumber.hasOwnProperty(name) && isUnitlessNumber[name])) {
+        if (!isCustomProperty && typeof value === "number" && value !== 0 && !(isUnitlessNumber.hasOwnProperty(name2) && isUnitlessNumber[name2])) {
           return value + "px";
         }
         {
-          checkCSSPropertyStringCoercion(value, name);
+          checkCSSPropertyStringCoercion(value, name2);
         }
         return ("" + value).trim();
       }
       var uppercasePattern = /([A-Z])/g;
       var msPattern2 = /^ms-/;
-      function hyphenateStyleName2(name) {
-        return name.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern2, "-ms-");
+      function hyphenateStyleName2(name2) {
+        return name2.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern2, "-ms-");
       }
       var warnValidStyle = function() {
       };
@@ -27235,61 +27235,61 @@ function requireReactDom_development() {
             return character.toUpperCase();
           });
         };
-        var warnHyphenatedStyleName = function(name) {
-          if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+        var warnHyphenatedStyleName = function(name2) {
+          if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
             return;
           }
-          warnedStyleNames[name] = true;
+          warnedStyleNames[name2] = true;
           error(
             "Unsupported style property %s. Did you mean %s?",
-            name,
+            name2,
             // As Andi Smith suggests
             // (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
             // is converted to lowercase `ms`.
-            camelize(name.replace(msPattern$1, "ms-"))
+            camelize(name2.replace(msPattern$1, "ms-"))
           );
         };
-        var warnBadVendoredStyleName = function(name) {
-          if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+        var warnBadVendoredStyleName = function(name2) {
+          if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
             return;
           }
-          warnedStyleNames[name] = true;
-          error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name, name.charAt(0).toUpperCase() + name.slice(1));
+          warnedStyleNames[name2] = true;
+          error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name2, name2.charAt(0).toUpperCase() + name2.slice(1));
         };
-        var warnStyleValueWithSemicolon = function(name, value) {
+        var warnStyleValueWithSemicolon = function(name2, value) {
           if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
             return;
           }
           warnedStyleValues[value] = true;
-          error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name, value.replace(badStyleValueWithSemicolonPattern, ""));
+          error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name2, value.replace(badStyleValueWithSemicolonPattern, ""));
         };
-        var warnStyleValueIsNaN = function(name, value) {
+        var warnStyleValueIsNaN = function(name2, value) {
           if (warnedForNaNValue) {
             return;
           }
           warnedForNaNValue = true;
-          error("`NaN` is an invalid value for the `%s` css style property.", name);
+          error("`NaN` is an invalid value for the `%s` css style property.", name2);
         };
-        var warnStyleValueIsInfinity = function(name, value) {
+        var warnStyleValueIsInfinity = function(name2, value) {
           if (warnedForInfinityValue) {
             return;
           }
           warnedForInfinityValue = true;
-          error("`Infinity` is an invalid value for the `%s` css style property.", name);
+          error("`Infinity` is an invalid value for the `%s` css style property.", name2);
         };
-        warnValidStyle = function(name, value) {
-          if (name.indexOf("-") > -1) {
-            warnHyphenatedStyleName(name);
-          } else if (badVendoredStyleNamePattern.test(name)) {
-            warnBadVendoredStyleName(name);
+        warnValidStyle = function(name2, value) {
+          if (name2.indexOf("-") > -1) {
+            warnHyphenatedStyleName(name2);
+          } else if (badVendoredStyleNamePattern.test(name2)) {
+            warnBadVendoredStyleName(name2);
           } else if (badStyleValueWithSemicolonPattern.test(value)) {
-            warnStyleValueWithSemicolon(name, value);
+            warnStyleValueWithSemicolon(name2, value);
           }
           if (typeof value === "number") {
             if (isNaN(value)) {
-              warnStyleValueIsNaN(name, value);
+              warnStyleValueIsNaN(name2, value);
             } else if (!isFinite(value)) {
-              warnStyleValueIsInfinity(name, value);
+              warnStyleValueIsInfinity(name2, value);
             }
           }
         };
@@ -27993,35 +27993,35 @@ function requireReactDom_development() {
       var warnedProperties = {};
       var rARIA = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
       var rARIACamel = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-      function validateProperty(tagName, name) {
+      function validateProperty(tagName, name2) {
         {
-          if (hasOwnProperty.call(warnedProperties, name) && warnedProperties[name]) {
+          if (hasOwnProperty.call(warnedProperties, name2) && warnedProperties[name2]) {
             return true;
           }
-          if (rARIACamel.test(name)) {
-            var ariaName = "aria-" + name.slice(4).toLowerCase();
+          if (rARIACamel.test(name2)) {
+            var ariaName = "aria-" + name2.slice(4).toLowerCase();
             var correctName = ariaProperties.hasOwnProperty(ariaName) ? ariaName : null;
             if (correctName == null) {
-              error("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name);
-              warnedProperties[name] = true;
+              error("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name2);
+              warnedProperties[name2] = true;
               return true;
             }
-            if (name !== correctName) {
-              error("Invalid ARIA attribute `%s`. Did you mean `%s`?", name, correctName);
-              warnedProperties[name] = true;
+            if (name2 !== correctName) {
+              error("Invalid ARIA attribute `%s`. Did you mean `%s`?", name2, correctName);
+              warnedProperties[name2] = true;
               return true;
             }
           }
-          if (rARIA.test(name)) {
-            var lowerCasedName = name.toLowerCase();
+          if (rARIA.test(name2)) {
+            var lowerCasedName = name2.toLowerCase();
             var standardName = ariaProperties.hasOwnProperty(lowerCasedName) ? lowerCasedName : null;
             if (standardName == null) {
-              warnedProperties[name] = true;
+              warnedProperties[name2] = true;
               return false;
             }
-            if (name !== standardName) {
-              error("Unknown ARIA attribute `%s`. Did you mean `%s`?", name, standardName);
-              warnedProperties[name] = true;
+            if (name2 !== standardName) {
+              error("Unknown ARIA attribute `%s`. Did you mean `%s`?", name2, standardName);
+              warnedProperties[name2] = true;
               return true;
             }
           }
@@ -28077,95 +28077,95 @@ function requireReactDom_development() {
         var INVALID_EVENT_NAME_REGEX = /^on[^A-Z]/;
         var rARIA$1 = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
         var rARIACamel$1 = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-        validateProperty$1 = function(tagName, name, value, eventRegistry) {
-          if (hasOwnProperty.call(warnedProperties$1, name) && warnedProperties$1[name]) {
+        validateProperty$1 = function(tagName, name2, value, eventRegistry) {
+          if (hasOwnProperty.call(warnedProperties$1, name2) && warnedProperties$1[name2]) {
             return true;
           }
-          var lowerCasedName = name.toLowerCase();
+          var lowerCasedName = name2.toLowerCase();
           if (lowerCasedName === "onfocusin" || lowerCasedName === "onfocusout") {
             error("React uses onFocus and onBlur instead of onFocusIn and onFocusOut. All React events are normalized to bubble, so onFocusIn and onFocusOut are not needed/supported by React.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (eventRegistry != null) {
             var registrationNameDependencies2 = eventRegistry.registrationNameDependencies, possibleRegistrationNames2 = eventRegistry.possibleRegistrationNames;
-            if (registrationNameDependencies2.hasOwnProperty(name)) {
+            if (registrationNameDependencies2.hasOwnProperty(name2)) {
               return true;
             }
             var registrationName = possibleRegistrationNames2.hasOwnProperty(lowerCasedName) ? possibleRegistrationNames2[lowerCasedName] : null;
             if (registrationName != null) {
-              error("Invalid event handler property `%s`. Did you mean `%s`?", name, registrationName);
-              warnedProperties$1[name] = true;
+              error("Invalid event handler property `%s`. Did you mean `%s`?", name2, registrationName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-            if (EVENT_NAME_REGEX.test(name)) {
-              error("Unknown event handler property `%s`. It will be ignored.", name);
-              warnedProperties$1[name] = true;
+            if (EVENT_NAME_REGEX.test(name2)) {
+              error("Unknown event handler property `%s`. It will be ignored.", name2);
+              warnedProperties$1[name2] = true;
               return true;
             }
-          } else if (EVENT_NAME_REGEX.test(name)) {
-            if (INVALID_EVENT_NAME_REGEX.test(name)) {
-              error("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name);
+          } else if (EVENT_NAME_REGEX.test(name2)) {
+            if (INVALID_EVENT_NAME_REGEX.test(name2)) {
+              error("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name2);
             }
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
-          if (rARIA$1.test(name) || rARIACamel$1.test(name)) {
+          if (rARIA$1.test(name2) || rARIACamel$1.test(name2)) {
             return true;
           }
           if (lowerCasedName === "innerhtml") {
             error("Directly setting property `innerHTML` is not permitted. For more information, lookup documentation on `dangerouslySetInnerHTML`.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (lowerCasedName === "aria") {
             error("The `aria` attribute is reserved for future use in React. Pass individual `aria-` attributes instead.");
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (lowerCasedName === "is" && value !== null && value !== void 0 && typeof value !== "string") {
             error("Received a `%s` for a string attribute `is`. If this is expected, cast the value to a string.", typeof value);
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (typeof value === "number" && isNaN(value)) {
-            error("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name);
-            warnedProperties$1[name] = true;
+            error("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name2);
+            warnedProperties$1[name2] = true;
             return true;
           }
-          var propertyInfo = getPropertyInfo(name);
+          var propertyInfo = getPropertyInfo(name2);
           var isReserved = propertyInfo !== null && propertyInfo.type === RESERVED;
           if (possibleStandardNames.hasOwnProperty(lowerCasedName)) {
             var standardName = possibleStandardNames[lowerCasedName];
-            if (standardName !== name) {
-              error("Invalid DOM property `%s`. Did you mean `%s`?", name, standardName);
-              warnedProperties$1[name] = true;
+            if (standardName !== name2) {
+              error("Invalid DOM property `%s`. Did you mean `%s`?", name2, standardName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-          } else if (!isReserved && name !== lowerCasedName) {
-            error("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name, lowerCasedName);
-            warnedProperties$1[name] = true;
+          } else if (!isReserved && name2 !== lowerCasedName) {
+            error("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name2, lowerCasedName);
+            warnedProperties$1[name2] = true;
             return true;
           }
-          if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name, value, propertyInfo, false)) {
+          if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name2, value, propertyInfo, false)) {
             if (value) {
-              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name, name, value, name);
+              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name2, name2, value, name2);
             } else {
-              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name, name, value, name, name, name);
+              error('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name2, name2, value, name2, name2, name2);
             }
-            warnedProperties$1[name] = true;
+            warnedProperties$1[name2] = true;
             return true;
           }
           if (isReserved) {
             return true;
           }
-          if (shouldRemoveAttributeWithWarning(name, value, propertyInfo, false)) {
-            warnedProperties$1[name] = true;
+          if (shouldRemoveAttributeWithWarning(name2, value, propertyInfo, false)) {
+            warnedProperties$1[name2] = true;
             return false;
           }
           if ((value === "false" || value === "true") && propertyInfo !== null && propertyInfo.type === BOOLEAN) {
-            error("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name, value);
-            warnedProperties$1[name] = true;
+            error("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name2, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name2, value);
+            warnedProperties$1[name2] = true;
             return true;
           }
           return true;
@@ -28308,8 +28308,8 @@ function requireReactDom_development() {
       function isInteractive(tag) {
         return tag === "button" || tag === "input" || tag === "select" || tag === "textarea";
       }
-      function shouldPreventMouseEvent(name, type, props) {
-        switch (name) {
+      function shouldPreventMouseEvent(name2, type, props) {
+        switch (name2) {
           case "onClick":
           case "onClickCapture":
           case "onDoubleClick":
@@ -28359,7 +28359,7 @@ function requireReactDom_development() {
           passiveBrowserEventsSupported = false;
         }
       }
-      function invokeGuardedCallbackProd(name, func, context, a2, b2, c2, d2, e2, f2) {
+      function invokeGuardedCallbackProd(name2, func, context, a2, b2, c2, d2, e2, f2) {
         var funcArgs = Array.prototype.slice.call(arguments, 3);
         try {
           func.apply(context, funcArgs);
@@ -28371,7 +28371,7 @@ function requireReactDom_development() {
       {
         if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
           var fakeNode = document.createElement("react");
-          invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a2, b2, c2, d2, e2, f2) {
+          invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name2, func, context, a2, b2, c2, d2, e2, f2) {
             if (typeof document === "undefined" || document === null) {
               throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
             }
@@ -28411,7 +28411,7 @@ function requireReactDom_development() {
                 }
               }
             }
-            var evtType = "react-" + (name ? name : "invokeguardedcallback");
+            var evtType = "react-" + (name2 ? name2 : "invokeguardedcallback");
             window.addEventListener("error", handleWindowError);
             fakeNode.addEventListener(evtType, callCallback2, false);
             evt.initEvent(evtType, false, false);
@@ -28446,12 +28446,12 @@ function requireReactDom_development() {
           caughtError = error2;
         }
       };
-      function invokeGuardedCallback(name, func, context, a2, b2, c2, d2, e2, f2) {
+      function invokeGuardedCallback(name2, func, context, a2, b2, c2, d2, e2, f2) {
         hasError = false;
         caughtError = null;
         invokeGuardedCallbackImpl$1.apply(reporter, arguments);
       }
-      function invokeGuardedCallbackAndCatchFirstError(name, func, context, a2, b2, c2, d2, e2, f2) {
+      function invokeGuardedCallbackAndCatchFirstError(name2, func, context, a2, b2, c2, d2, e2, f2) {
         invokeGuardedCallback.apply(this, arguments);
         if (hasError) {
           var error2 = clearCaughtError();
@@ -32108,8 +32108,8 @@ function requireReactDom_development() {
           }
           didWarnInvalidHydration = true;
           var names = [];
-          attributeNames.forEach(function(name) {
-            names.push(name);
+          attributeNames.forEach(function(name2) {
+            names.push(name2);
           });
           error("Extra attributes from the server: %s", names);
         };
@@ -32575,8 +32575,8 @@ function requireReactDom_development() {
           extraAttributeNames = /* @__PURE__ */ new Set();
           var attributes = domElement.attributes;
           for (var _i = 0; _i < attributes.length; _i++) {
-            var name = attributes[_i].name.toLowerCase();
-            switch (name) {
+            var name2 = attributes[_i].name.toLowerCase();
+            switch (name2) {
               // Controlled attributes are not validated
               // TODO: Only ignore them on controlled tags.
               case "value":
@@ -33719,8 +33719,8 @@ function requireReactDom_development() {
             context[key] = unmaskedContext[key];
           }
           {
-            var name = getComponentNameFromFiber(workInProgress2) || "Unknown";
-            checkPropTypes(contextTypes, context, "context", name);
+            var name2 = getComponentNameFromFiber(workInProgress2) || "Unknown";
+            checkPropTypes(contextTypes, context, "context", name2);
           }
           if (instance) {
             cacheContext(workInProgress2, unmaskedContext, context);
@@ -33781,8 +33781,8 @@ function requireReactDom_development() {
             }
           }
           {
-            var name = getComponentNameFromFiber(fiber) || "Unknown";
-            checkPropTypes(childContextTypes, childContext, "child context", name);
+            var name2 = getComponentNameFromFiber(fiber) || "Unknown";
+            checkPropTypes(childContextTypes, childContext, "child context", name2);
           }
           return assign({}, parentContext, childContext);
         }
@@ -36177,11 +36177,11 @@ function requireReactDom_development() {
       }
       function registerMutableSourceForHydration(root2, mutableSource) {
         var getVersion = mutableSource._getVersion;
-        var version = getVersion(mutableSource._source);
+        var version2 = getVersion(mutableSource._source);
         if (root2.mutableSourceEagerHydrationData == null) {
-          root2.mutableSourceEagerHydrationData = [mutableSource, version];
+          root2.mutableSourceEagerHydrationData = [mutableSource, version2];
         } else {
-          root2.mutableSourceEagerHydrationData.push(mutableSource, version);
+          root2.mutableSourceEagerHydrationData.push(mutableSource, version2);
         }
       }
       var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher, ReactCurrentBatchConfig$2 = ReactSharedInternals.ReactCurrentBatchConfig;
@@ -38299,92 +38299,92 @@ function requireReactDom_development() {
       function checkClassInstance(workInProgress2, ctor, newProps) {
         var instance = workInProgress2.stateNode;
         {
-          var name = getComponentNameFromType(ctor) || "Component";
+          var name2 = getComponentNameFromType(ctor) || "Component";
           var renderPresent = instance.render;
           if (!renderPresent) {
             if (ctor.prototype && typeof ctor.prototype.render === "function") {
-              error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name);
+              error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name2);
             } else {
-              error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name);
+              error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name2);
             }
           }
           if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
-            error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name);
+            error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name2);
           }
           if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
-            error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name);
+            error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name2);
           }
           if (instance.propTypes) {
-            error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name);
+            error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name2);
           }
           if (instance.contextType) {
-            error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name);
+            error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name2);
           }
           {
             if (ctor.childContextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
             // this one.
             (workInProgress2.mode & StrictLegacyMode) === NoMode) {
               didWarnAboutLegacyContext$1.add(ctor);
-              error("%s uses the legacy childContextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() instead\n\n.Learn more about this warning here: https://reactjs.org/link/legacy-context", name);
+              error("%s uses the legacy childContextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() instead\n\n.Learn more about this warning here: https://reactjs.org/link/legacy-context", name2);
             }
             if (ctor.contextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
             // this one.
             (workInProgress2.mode & StrictLegacyMode) === NoMode) {
               didWarnAboutLegacyContext$1.add(ctor);
-              error("%s uses the legacy contextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() with static contextType instead.\n\nLearn more about this warning here: https://reactjs.org/link/legacy-context", name);
+              error("%s uses the legacy contextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() with static contextType instead.\n\nLearn more about this warning here: https://reactjs.org/link/legacy-context", name2);
             }
             if (instance.contextTypes) {
-              error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name);
+              error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name2);
             }
             if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
               didWarnAboutContextTypeAndContextTypes.add(ctor);
-              error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name);
+              error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name2);
             }
           }
           if (typeof instance.componentShouldUpdate === "function") {
-            error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name);
+            error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name2);
           }
           if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== "undefined") {
             error("%s has a method called shouldComponentUpdate(). shouldComponentUpdate should not be used when extending React.PureComponent. Please extend React.Component if shouldComponentUpdate is used.", getComponentNameFromType(ctor) || "A pure component");
           }
           if (typeof instance.componentDidUnmount === "function") {
-            error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name);
+            error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name2);
           }
           if (typeof instance.componentDidReceiveProps === "function") {
-            error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name);
+            error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name2);
           }
           if (typeof instance.componentWillRecieveProps === "function") {
-            error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name);
+            error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name2);
           }
           if (typeof instance.UNSAFE_componentWillRecieveProps === "function") {
-            error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name);
+            error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name2);
           }
           var hasMutatedProps = instance.props !== newProps;
           if (instance.props !== void 0 && hasMutatedProps) {
-            error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name, name);
+            error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name2, name2);
           }
           if (instance.defaultProps) {
-            error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name, name);
+            error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name2, name2);
           }
           if (typeof instance.getSnapshotBeforeUpdate === "function" && typeof instance.componentDidUpdate !== "function" && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
             didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
             error("%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). This component defines getSnapshotBeforeUpdate() only.", getComponentNameFromType(ctor));
           }
           if (typeof instance.getDerivedStateFromProps === "function") {
-            error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+            error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
           }
           if (typeof instance.getDerivedStateFromError === "function") {
-            error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+            error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
           }
           if (typeof ctor.getSnapshotBeforeUpdate === "function") {
-            error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name);
+            error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name2);
           }
           var _state = instance.state;
           if (_state && (typeof _state !== "object" || isArray(_state))) {
-            error("%s.state: must be set to an object or null", name);
+            error("%s.state: must be set to an object or null", name2);
           }
           if (typeof instance.getChildContext === "function" && typeof ctor.childContextTypes !== "object") {
-            error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name);
+            error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name2);
           }
         }
       }
@@ -46450,16 +46450,16 @@ function getFormSubmissionInfo(target, basename) {
     formData = new FormData(form, target);
     if (!isFormDataSubmitterSupported()) {
       let {
-        name,
+        name: name2,
         type,
         value
       } = target;
       if (type === "image") {
-        let prefix = name ? name + "." : "";
+        let prefix = name2 ? name2 + "." : "";
         formData.append(prefix + "x", "0");
         formData.append(prefix + "y", "0");
-      } else if (name) {
-        formData.append(name, value);
+      } else if (name2) {
+        formData.append(name2, value);
       }
     }
   } else if (isHtmlElement(target)) {
@@ -46499,7 +46499,7 @@ if (process.env.NODE_ENV !== "production") {
   FetchersContext.displayName = "Fetchers";
 }
 if (process.env.NODE_ENV !== "production") ;
-const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+const isBrowser$1 = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
 const ABSOLUTE_URL_REGEX$1 = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
 const Link = /* @__PURE__ */ reactExports.forwardRef(function LinkWithRef(_ref7, ref) {
   let {
@@ -46520,7 +46520,7 @@ const Link = /* @__PURE__ */ reactExports.forwardRef(function LinkWithRef(_ref7,
   let isExternal = false;
   if (typeof to === "string" && ABSOLUTE_URL_REGEX$1.test(to)) {
     absoluteHref = to;
-    if (isBrowser) {
+    if (isBrowser$1) {
       try {
         let currentUrl = new URL(window.location.href);
         let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
@@ -46893,6 +46893,172 @@ function encodeLocation(to) {
   };
 }
 const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+var initQueue = () => {
+  if (window.va) return;
+  window.va = function a2(...params) {
+    if (!window.vaq) window.vaq = [];
+    window.vaq.push(params);
+  };
+};
+var name = "@vercel/analytics";
+var version = "2.0.1";
+function isBrowser() {
+  return typeof window !== "undefined";
+}
+function detectEnvironment() {
+  try {
+    const env = process.env.NODE_ENV;
+    if (env === "development" || env === "test") {
+      return "development";
+    }
+  } catch {
+  }
+  return "production";
+}
+function setMode(mode = "auto") {
+  if (mode === "auto") {
+    window.vam = detectEnvironment();
+    return;
+  }
+  window.vam = mode;
+}
+function getMode() {
+  const mode = isBrowser() ? window.vam : detectEnvironment();
+  return mode || "production";
+}
+function isDevelopment() {
+  return getMode() === "development";
+}
+function getScriptSrc(props) {
+  if (props.scriptSrc) {
+    return makeAbsolute(props.scriptSrc);
+  }
+  if (isDevelopment()) {
+    return "https://va.vercel-scripts.com/v1/script.debug.js";
+  }
+  if (props.basePath) {
+    return makeAbsolute(`${props.basePath}/insights/script.js`);
+  }
+  return "/_vercel/insights/script.js";
+}
+function loadProps(explicitProps, confString) {
+  var _a;
+  let props = explicitProps;
+  if (confString) {
+    try {
+      props = {
+        ...(_a = JSON.parse(confString)) == null ? void 0 : _a.analytics,
+        ...explicitProps
+      };
+    } catch {
+    }
+  }
+  setMode(props.mode);
+  const dataset = {
+    sdkn: name + (props.framework ? `/${props.framework}` : ""),
+    sdkv: version
+  };
+  if (props.disableAutoTrack) {
+    dataset.disableAutoTrack = "1";
+  }
+  if (props.viewEndpoint) {
+    dataset.viewEndpoint = makeAbsolute(props.viewEndpoint);
+  }
+  if (props.eventEndpoint) {
+    dataset.eventEndpoint = makeAbsolute(props.eventEndpoint);
+  }
+  if (props.sessionEndpoint) {
+    dataset.sessionEndpoint = makeAbsolute(props.sessionEndpoint);
+  }
+  if (isDevelopment() && props.debug === false) {
+    dataset.debug = "false";
+  }
+  if (props.dsn) {
+    dataset.dsn = props.dsn;
+  }
+  if (props.endpoint) {
+    dataset.endpoint = props.endpoint;
+  } else if (props.basePath) {
+    dataset.endpoint = makeAbsolute(`${props.basePath}/insights`);
+  }
+  return {
+    beforeSend: props.beforeSend,
+    src: getScriptSrc(props),
+    dataset
+  };
+}
+function makeAbsolute(url) {
+  return url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/") ? url : `/${url}`;
+}
+function inject(props = {
+  debug: true
+}, confString) {
+  var _a;
+  if (!isBrowser()) return;
+  const { beforeSend, src, dataset } = loadProps(props, confString);
+  initQueue();
+  if (beforeSend) {
+    (_a = window.va) == null ? void 0 : _a.call(window, "beforeSend", beforeSend);
+  }
+  if (document.head.querySelector(`script[src*="${src}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  for (const [key, value] of Object.entries(dataset)) {
+    script.dataset[key] = value;
+  }
+  script.defer = true;
+  script.onerror = () => {
+    const errorMessage = isDevelopment() ? "Please check if any ad blockers are enabled and try again." : "Be sure to enable Web Analytics for your project and deploy again. See https://vercel.com/docs/analytics/quickstart for more information.";
+    console.log(
+      `[Vercel Web Analytics] Failed to load script from ${src}. ${errorMessage}`
+    );
+  };
+  document.head.appendChild(script);
+}
+function pageview({
+  route,
+  path
+}) {
+  var _a;
+  (_a = window.va) == null ? void 0 : _a.call(window, "pageview", { route, path });
+}
+function getBasePath() {
+  if (typeof process === "undefined" || typeof process.env === "undefined") {
+    return void 0;
+  }
+  return process.env.REACT_APP_VERCEL_OBSERVABILITY_BASEPATH;
+}
+function getConfigString() {
+  if (typeof process === "undefined" || typeof process.env === "undefined") {
+    return void 0;
+  }
+  return process.env.REACT_APP_VERCEL_OBSERVABILITY_CLIENT_CONFIG;
+}
+function Analytics(props) {
+  reactExports.useEffect(() => {
+    var _a;
+    if (props.beforeSend) {
+      (_a = window.va) == null ? void 0 : _a.call(window, "beforeSend", props.beforeSend);
+    }
+  }, [props.beforeSend]);
+  reactExports.useEffect(() => {
+    inject(
+      {
+        framework: props.framework || "react",
+        basePath: props.basePath ?? getBasePath(),
+        ...props.route !== void 0 && { disableAutoTrack: true },
+        ...props
+      },
+      props.configString ?? getConfigString()
+    );
+  }, []);
+  reactExports.useEffect(() => {
+    if (props.route && props.path) {
+      pageview({ route: props.route, path: props.path });
+    }
+  }, [props.route, props.path]);
+  return null;
+}
 function Header() {
   const { pathname } = useLocation();
   const [show, setShow] = reactExports.useState(false);
@@ -46977,7 +47143,7 @@ function App$1() {
   }, [crossed, scrollThreshold]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "contact", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: `email ${showContacts ? "fadeIn" : ""}`, children: "email: szabi.v96@gmail.com" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: `email ${showContacts ? "fadeIn" : ""}`, children: "behance: szabolcsvarga96" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: `email ${showContacts ? "fadeIn" : ""}`, children: "behance: szabolcvarga96" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: `email ${showContacts ? "fadeIn" : ""}`, children: "insta: @szabolcs.lajos" })
   ] });
 }
@@ -51468,15 +51634,15 @@ const socialLinks = [
   {
     name: "Instagram",
     href: "https://www.instagram.com/szabolcs.lajos/",
-    icon: /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "3", y: "3", width: "18", height: "18", rx: "5" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "12", cy: "12", r: "4" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "17.5", cy: "6.5", r: "1.4" })
+    icon: /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", className: "strokeIcon", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { x: "4", y: "4", width: "16", height: "16", rx: "4.5" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "12", cy: "12", r: "3.6" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "17", cy: "7", r: "0.7" })
     ] })
   },
   {
     name: "Behance",
-    href: "https://www.behance.net/szabolcsvarga96",
+    href: "https://www.behance.net/szabolcvarga96",
     icon: /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4 6h6.3c2.4 0 3.9 1.2 3.9 3.1 0 1.1-.5 2-1.5 2.5 1.3.5 2 1.5 2 3 0 2.2-1.7 3.4-4.3 3.4H4V6zm5.8 4.7c1 0 1.6-.4 1.6-1.2s-.6-1.2-1.6-1.2H6.9v2.4h2.9zm.3 5c1.2 0 1.8-.5 1.8-1.4s-.7-1.4-1.9-1.4H6.9v2.8h3.2z" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M15.8 7h5.1v1.5h-5.1V7zm2.8 3.1c2.5 0 4.1 1.8 4.1 4.4 0 .3 0 .6-.1.8h-5.8c.2 1 1 1.6 2.1 1.6.8 0 1.4-.3 1.9-.9l1.5 1.5c-.8 1-2 1.6-3.5 1.6-2.7 0-4.4-1.8-4.4-4.5s1.7-4.5 4.2-4.5zm1.7 3.6c-.1-1-.7-1.6-1.7-1.6-.9 0-1.6.6-1.8 1.6h3.5z" })
@@ -51484,7 +51650,7 @@ const socialLinks = [
   },
   {
     name: "Substack",
-    href: "#",
+    href: "https://substack.com/@szabolcslajos",
     icon: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M5 4h14v2.6H5V4zm0 4.6h14v2.6H5V8.6zm0 4.6h14V21l-7-3.9L5 21v-7.8z" }) })
   }
 ];
@@ -51664,39 +51830,44 @@ function App({ initialData = null, shouldBootstrapOnMount = true }) {
       abortController.abort();
     };
   }, [hasInitialData, shouldBootstrapOnMount]);
+  let content;
   if (dataError) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "statusScreen", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "statusCard", children: [
+    content = /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "statusScreen", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "statusCard", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Unable to load portfolio data" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: dataError }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "For secure local development, use `npm run vercel-dev` instead of the plain Vite dev server." })
     ] }) });
-  }
-  if (loading || FORCE_LOADING_SCREEN) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "statusScreen", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "statusCard statusCardLoading", children: [
+  } else if (loading || FORCE_LOADING_SCREEN) {
+    content = /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "statusScreen", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "statusCard statusCardLoading", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "statusSpinner", "aria-hidden": "true" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Loading portfolio" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "It should take only less then a second. :- )" })
     ] }) });
+  } else {
+    content = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "site", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Home, { cvDatas, posts, authors }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/gallery/*", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CarefullyKept, { pictures }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/gallery/:pictureId", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SoloAlbum, { pictures }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/quit", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Quit, { posts, authors }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/cv", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CV, { cvDatas }) }),
+        posts.map((post, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Route,
+          {
+            path: `/quit/${post._rev}`,
+            element: /* @__PURE__ */ jsxRuntimeExports.jsx(Post, { title: post.title, post, authors })
+          },
+          post._id || post._rev || idx
+        ))
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "site", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Home, { cvDatas, posts, authors }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/gallery/*", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CarefullyKept, { pictures }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/gallery/:pictureId", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SoloAlbum, { pictures }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/quit", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Quit, { posts, authors }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/cv", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CV, { cvDatas }) }),
-      posts.map((post, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Route,
-        {
-          path: `/quit/${post._rev}`,
-          element: /* @__PURE__ */ jsxRuntimeExports.jsx(Post, { title: post.title, post, authors })
-        },
-        post._id || post._rev || idx
-      ))
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
-  ] }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    content,
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Analytics, {})
+  ] });
 }
 function render(url, initialData) {
   return server_nodeExports.renderToString(

@@ -1,6 +1,7 @@
 import './App.scss';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Home from './pages/Home';
 import CarefullyKept from './pages/CarefullyKept';
@@ -67,8 +68,10 @@ export default function App({ initialData = null, shouldBootstrapOnMount = true 
     };
   }, [hasInitialData, shouldBootstrapOnMount]);
 
+  let content;
+
   if (dataError) {
-    return (
+    content = (
       <div className='statusScreen'>
         <div className='statusCard'>
           <h2>Unable to load portfolio data</h2>
@@ -77,10 +80,8 @@ export default function App({ initialData = null, shouldBootstrapOnMount = true 
         </div>
       </div>
     );
-  }
-
-  if (loading || FORCE_LOADING_SCREEN) {
-    return (
+  } else if (loading || FORCE_LOADING_SCREEN) {
+    content = (
       <div className='statusScreen'>
         <div className='statusCard statusCardLoading'>
           <div className='statusSpinner' aria-hidden='true'></div>
@@ -89,10 +90,8 @@ export default function App({ initialData = null, shouldBootstrapOnMount = true 
         </div>
       </div>
     );
-  }
-
-  return (
-    <>
+  } else {
+    content = (
       <div className='site'>
         <Header />
         <Routes>
@@ -111,6 +110,13 @@ export default function App({ initialData = null, shouldBootstrapOnMount = true 
         </Routes>
         <Footer />
       </div>
+    );
+  }
+
+  return (
+    <>
+      {content}
+      <Analytics />
     </>
   );
 }
